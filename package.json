@@ -1,0 +1,11 @@
+{
+  "name": "practice_in_front_end",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "test-promise": "promises-aplus-tests ./src/promise/APromise.js"
+  },
+  "devDependencies": {
+    "promises-aplus-tests": "^2.1.2"
+  }
+}
