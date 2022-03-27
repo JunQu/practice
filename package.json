@@ -1,11 +1,21 @@
 {
-  "name": "practice_in_front_end",
-  "version": "0.1.0",
+  "name": "vite-app",
   "private": true,
+  "version": "0.0.0",
   "scripts": {
-    "test-promise": "promises-aplus-tests ./src/promise/APromise.js"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.6",
+    "redux": "^4.1.2"
   },
   "devDependencies": {
+    "@vitejs/plugin-react": "^1.0.7",
+    "vite": "^2.8.0",
     "promises-aplus-tests": "^2.1.2"
   }
 }
