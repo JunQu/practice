@@ -2,7 +2,7 @@ const PENDING = 'pending'
 const FULFILLED = 'fulfilled'
 const REJECTED = 'rejected'
 
-export class APromise {
+class APromise {
   status = PENDING
   value = null
   reason = null
@@ -144,3 +144,5 @@ APromise.deferred = () => {
   })
   return adapter
 }
+
+module.exports = APromise

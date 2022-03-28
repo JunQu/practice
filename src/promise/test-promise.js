@@ -1,5 +1,5 @@
 // simple tests
-const APromise = require('./APromise')
+const APromise = require('./promise')
 
 const promise1 = new APromise((resolve, reject)=>{
   resolve('promise1: test fine')
