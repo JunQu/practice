@@ -54,3 +54,20 @@ errPromise.then(val=>{
 },reason=>{
   console.log('errPromise: '+reason)
 })
+
+const requestPromise = () => {
+  const httpRequest = new XMLHttpRequest()
+  return new APromise((resolve, reject)=>{
+    httpRequest.onreadystatechange = ()=>{
+      if (httpRequest.readyState === 4) {
+        if (httpRequest.status === 200) {
+          resolve(httpRequest.responseText)
+        } else {
+          reject(httpRequest.statusText)
+        }
+      }
+    }
+    httpRequest.open('GET', 'https://api.github.com/users/mzabriskie')
+    httpRequest.send()
+  })
+}

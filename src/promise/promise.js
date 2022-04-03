@@ -117,6 +117,14 @@ class APromise {
     this.then(null, onReject)
   }
 
+  finally = (callback) => {
+   const constructor = this.constructor
+    return this.then(
+      value => constructor.resolve(callback()).then(()=>value),
+      reason => constructor.resolve(callback()).then(()=>{ throw reason })
+    )
+  }
+
   static resolve(value) {
     if (value instanceof APromise) {
       return value
@@ -134,6 +142,14 @@ class APromise {
       reject(reason)
     })
   }
+
+  static any() {
+
+  }
+  static race() {
+
+  }
+
 }
 
 APromise.deferred = () => {
@@ -146,3 +162,10 @@ APromise.deferred = () => {
 }
 
 module.exports = APromise
+
+const aPromise = new APromise((resolve, reject)=>{
+  resolve('resolve')
+}).then((value)=>{
+  console.log(value);
+  return 'then resolve'
+})
