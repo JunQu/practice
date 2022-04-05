@@ -6,7 +6,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test-promise": "promises-aplus-tests ./src/promise/promise.js"
+    "test-promise": "promises-aplus-tests ./promise/promise.js"
   },
   "dependencies": {
     "react": "^17.0.2",
