@@ -6,6 +6,9 @@ body {
 ol, ul {
   padding-left: 30px;
 }
+.board-row {
+
+}
 
 .board-row:after {
   clear: both;
