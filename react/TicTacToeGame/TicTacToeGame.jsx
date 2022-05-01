@@ -1,6 +1,7 @@
 import { Board } from './Board'
 import style from './game.module.css'
 import { useMemo, useState } from 'react'
+import { calculateWinner } from './helper'
 
 export const TicTacToeGame = () => {
   const [squaresHistory, setSquaresHistory] = useState([{ squares: Array(9).fill(null) }])

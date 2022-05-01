@@ -1,9 +1,9 @@
 import { TicTacToeGame } from './TicTacToeGame/TicTacToeGame'
-
+import { BrowserRouter } from 'react-router-dom'
 export function App() {
   return (
-    <div className="App">
+    <BrowserRouter className="app" basename="/react">
       <TicTacToeGame />
-    </div>
+    </BrowserRouter>
   )
 }
