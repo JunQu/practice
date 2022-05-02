@@ -1,8 +1,4 @@
-/**
- * @param {string[]} sentences
- * @return {number}
- */
-const mostWordsFound = function (sentences) {
+const mostWordsFound = (sentences: string[]): number => {
   let maxWords = 0
   for (const sentence of sentences) {
     let currentWorlds = 0

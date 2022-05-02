@@ -1,11 +1,11 @@
-const checkArr = (arr, sortedArr) => arr.every((el, index) => el === sortedArr[index])
+const checkArr = (arr: number[], sortedArr: number[]) => arr.every((el, index) => Object.is(el, sortedArr[index]))
 
-const swap = (arr, left, right) => ([arr[left], arr[right]] = [arr[right], arr[left]])
+const swap = (arr: number[], left: number, right: number) => ([arr[left], arr[right]] = [arr[right], arr[left]])
 
-const shuffle = ([...arr]) => {
-  let currentIndex = arr.length
+const shuffle = ([...arr]: number[]): number[] => {
+  let currentIndex: number = arr.length
   while (currentIndex) {
-    const randomIndex = Math.floor(Math.random() * currentIndex)
+    const randomIndex: number = Math.floor(Math.random() * currentIndex)
     currentIndex -= 1
     swap(arr, randomIndex, currentIndex)
   }
@@ -16,13 +16,13 @@ const arr = [-5, -1, -1, -1, 0, 2, 3, 5, 7, 7, 7, 7, 9, 9, 9, 10, 1000, 3213213]
 const shuffledArr = shuffle(arr)
 console.log('shuffledArr:', shuffledArr)
 
-const quicksortInNewPlace = (arr) => {
+const quicksortInNewPlace = (arr: number[]): number[] => {
   if (arr.length <= 1) {
     return arr
   }
-  let lessArr = []
-  let greaterArr = []
-  let midArr = []
+  let lessArr: number[] = []
+  let greaterArr: number[] = []
+  let midArr: number[] = []
   const position = arr[0]
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] < position) {
@@ -39,7 +39,7 @@ const quicksortInNewPlace = (arr) => {
 // console.log('quicksortInNewPlace: ', quicksortInNewPlace(shuffledArr))
 // console.log('Check:', checkArr(quicksortInNewPlace(shuffledArr), arr))
 
-const partitionHoare = (arr, low, high) => {
+const partitionHoare = (arr: number[], low: number, high: number): number => {
   // 取中间值可以尽量避免最差情况
   const pivot = arr[Math.floor((low + high) / 2)]
   while (true) {
@@ -60,7 +60,8 @@ const partitionHoare = (arr, low, high) => {
     high--
   }
 }
-const quickSortHoare = (arr, low = 0, high = arr.length - 1) => {
+
+const quickSortHoare = (arr: number[], low: number = 0, high: number = arr.length - 1) => {
   if (low >= high) {
     return
   }
@@ -72,7 +73,7 @@ quickSortHoare(shuffledArr)
 console.log(shuffledArr)
 console.log('Check:', checkArr(shuffledArr, arr))
 
-const partitionLomuto = (arr, low, high) => {
+const partitionLomuto = (arr: number[], low: number, high: number): number => {
   const pivot = arr[high]
   let pivotIndex = low
   for (let i = low; i < high; i++) {
@@ -85,11 +86,11 @@ const partitionLomuto = (arr, low, high) => {
   return pivotIndex
 }
 
-const quickSortLomuto = (arr, low = 0, high = arr.length - 1) => {
+const quickSortLomuto = (arr: number[], low: number = 0, high: number = arr.length - 1) => {
   if (low >= high) {
     return
   }
-  const pivotIndex = partitionLomuto(arr, low, high)
+  const pivotIndex: number = partitionLomuto(arr, low, high)
   quickSortLomuto(arr, low, pivotIndex - 1)
   quickSortLomuto(arr, pivotIndex + 1, high)
 }
@@ -99,8 +100,8 @@ console.log('shuffledArr3:', shuffledArr3)
 quickSortLomuto(shuffledArr3)
 console.log('quickSortLomuto:', checkArr(shuffledArr3, arr))
 
-const quickSortES = ([pivot, ...nums], desc) =>
-  typeof pivot !== 'number' || pivot !== pivot
+const quickSortES = ([pivot, ...nums]: number[], desc: boolean = false): number[] =>
+  pivot !== undefined
     ? []
     : [
         ...quickSortES(
@@ -117,30 +118,34 @@ const quickSortES = ([pivot, ...nums], desc) =>
 // const shuffledArr2 = shuffle(arr)
 // console.log('quickSortES Check:', checkArr(quickSortES(shuffledArr2, true).reverse(), arr))
 
-const partitionIterative = (arr, start, end) => {
+const partitionIterative = (arr: number[], start: number, end: number): number => {
   const pivotValue = arr[end]
   let pivotIndex = start
   for (let i = start; i < end; i++) {
     if (arr[i] < pivotValue) {
-      ;[arr[i], arr[pivotIndex]] = [arr[pivotIndex], arr[i]]
+      swap(arr, i, pivotIndex)
       pivotIndex++
     }
   }
 
-  ;[arr[pivotIndex], arr[end]] = [arr[end], arr[pivotIndex]]
+  swap(arr, pivotIndex, end)
   return pivotIndex
 }
-const quickSortIterative = (arr) => {
-  const stack = []
+
+const quickSortIterative = (arr: number[]): void => {
+  if (!arr.length) {
+    return
+  }
+  const stack: number[] = []
 
   stack.push(0)
   stack.push(arr.length - 1)
 
   while (stack[stack.length - 1] >= 0) {
-    const end = stack.pop()
-    const start = stack.pop()
+    const end: number = <number>stack.pop()
+    const start: number = <number>stack.pop()
 
-    const pivotIndex = partitionIterative(arr, start, end)
+    const pivotIndex: number = partitionIterative(arr, start, end)
 
     if (pivotIndex - 1 > start) {
       stack.push(start)

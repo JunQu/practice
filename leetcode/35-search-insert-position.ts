@@ -1,9 +1,4 @@
-/**
- * @param {number[]} nums
- * @param {number} target
- * @return {number}
- */
-const searchInsert = function (nums, target) {
+const searchInsert = function (nums: number[], target: number): number {
   if (nums[0] > target) {
     return 0
   }

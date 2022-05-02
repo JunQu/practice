@@ -1,15 +1,11 @@
-/**
- * @param {number} x
- * @return {boolean}
- */
 // 此方法主要采用位数对比，没有反转整个数，而是首位和尾数对比
-const isPalindrome1 =  (x) => {
+const isPalindrome1 = (x: number): boolean => {
   if (x < 0 || (x !== 0 && x % 10 === 0)) {
     return false
   }
 
-  let digit = 0   // x 的位数
-  let num = x     // 缓存 x
+  let digit = 0 // x 的位数
+  let num = x // 缓存 x
   while (num >= 1) {
     num = (num - (num % 10)) / 10
     digit++
@@ -37,12 +33,10 @@ const isPalindrome1 =  (x) => {
   return true
 }
 
-/**
- * @param {number} x
- * @return {boolean}
- */
+console.log(isPalindrome1(121))
+
 // 这里是反转后进行对比
-const isPalindrome2 = function (x) {
+const isPalindrome2 = function (x: number): boolean {
   if (x < 0 || (x !== 0 && x % 10 === 0)) {
     return false
   }
@@ -57,3 +51,4 @@ const isPalindrome2 = function (x) {
   return x === num
 }
 
+console.log(isPalindrome2(121))

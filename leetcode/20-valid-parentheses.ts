@@ -1,8 +1,4 @@
-/**
- * @param {string} s
- * @return {boolean}
- */
-const isValid = (s) => {
+const isValid = (s: string): boolean => {
   const stack = []
   for (const str of s) {
     switch (str) {
@@ -31,9 +27,9 @@ const isValid = (s) => {
     }
   }
   return !stack.length
-};
+}
 
-console.log(isValid('()'));
-console.log(isValid('(]){}'));
-console.log(isValid('(){}[]'));
-console.log(isValid('{()}'));
+console.log(isValid('()'))
+console.log(isValid('(]){}'))
+console.log(isValid('(){}[]'))
+console.log(isValid('{()}'))

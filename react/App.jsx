@@ -1,9 +1,12 @@
 import { TicTacToeGame } from './TicTacToeGame/TicTacToeGame'
-import { BrowserRouter } from 'react-router-dom'
-export function App() {
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
+export const App = () => {
   return (
     <BrowserRouter className="app" basename="/react">
-      <TicTacToeGame />
+      <Routes>
+        <Route path="/tic" element={<TicTacToeGame />} />
+      </Routes>
     </BrowserRouter>
   )
 }
