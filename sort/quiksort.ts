@@ -1,5 +1,6 @@
 const checkArr = (arr: number[], sortedArr: number[]) => arr.every((el, index) => Object.is(el, sortedArr[index]))
 
+// eslint-disable-next-line no-return-assign
 const swap = (arr: number[], left: number, right: number) => ([arr[left], arr[right]] = [arr[right], arr[left]])
 
 const shuffle = ([...arr]: number[]): number[] => {
@@ -133,7 +134,7 @@ const partitionIterative = (arr: number[], start: number, end: number): number =
 }
 
 const quickSortIterative = (arr: number[]): void => {
-  if (!arr.length) {
+  if (arr.length < 2) {
     return
   }
   const stack: number[] = []
@@ -142,8 +143,8 @@ const quickSortIterative = (arr: number[]): void => {
   stack.push(arr.length - 1)
 
   while (stack[stack.length - 1] >= 0) {
-    const end: number = <number>stack.pop()
-    const start: number = <number>stack.pop()
+    const end = stack.pop()!
+    const start = stack.pop()!
 
     const pivotIndex: number = partitionIterative(arr, start, end)
 

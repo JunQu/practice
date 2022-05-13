@@ -7,7 +7,7 @@ interface printLabel {
   [key: string | symbol]: string | number | undefined
 }
 
-function outLabel(label: printLabel): void {
+export function outLabel(label: printLabel): void {
   console.log(label.label)
 }
 

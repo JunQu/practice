@@ -2,8 +2,29 @@ const PENDING = 'pending'
 const FULFILLED = 'fulfilled'
 const REJECTED = 'rejected'
 
-class APromise {
-  status = PENDING
+export class APromise {
+  public static resolve(value) {
+    if (value instanceof APromise) {
+      return value
+    }
+    return new APromise((resolve) => {
+      resolve(value)
+    })
+  }
+
+  public static reject(reason) {
+    if (reason instanceof APromise) {
+      return reason
+    }
+    return new APromise((resolve, reject) => {
+      reject(reason)
+    })
+  }
+
+  public static any() {}
+  public static race() {}
+
+  private _status = PENDING
   value = null
   reason = null
   fulfilledCallbacks = []
@@ -18,16 +39,16 @@ class APromise {
   }
 
   resolve = (value) => {
-    if (this.status === PENDING) {
-      this.status = FULFILLED
+    if (this._status === PENDING) {
+      this._status = FULFILLED
       this.value = value
       this.fulfilledCallbacks.forEach((callback) => callback(value))
     }
   }
 
   reject = (reason) => {
-    if (this.status === PENDING) {
-      this.status = REJECTED
+    if (this._status === PENDING) {
+      this._status = REJECTED
       this.reason = reason
       this.rejectedCallbacks.forEach((callback) => callback(reason))
     }
@@ -76,7 +97,7 @@ class APromise {
     }
   }
 
-  then = (onFulfilled, onRejected) => {
+  then = (onFulfilled?, onRejected?) => {
     const coverOnFulfilled = typeof onFulfilled === 'function' ? onFulfilled : (value) => value
     const coverOnRejected =
       typeof onRejected === 'function'
@@ -97,7 +118,7 @@ class APromise {
         })
       }
 
-      switch (this.status) {
+      switch (this._status) {
         case FULFILLED:
           microtask(this.value, coverOnFulfilled)
           break
@@ -118,54 +139,30 @@ class APromise {
   }
 
   finally = (callback) => {
-   const constructor = this.constructor
     return this.then(
-      value => constructor.resolve(callback()).then(()=>value),
-      reason => constructor.resolve(callback()).then(()=>{ throw reason })
+      (value) => APromise.resolve(callback()).then(() => value),
+      (reason) =>
+        APromise.resolve(callback()).then(() => {
+          throw reason
+        })
     )
   }
-
-  static resolve(value) {
-    if (value instanceof APromise) {
-      return value
-    }
-    return new APromise((resolve) => {
-      resolve(value)
-    })
-  }
-
-  static reject(reason) {
-    if (reason instanceof APromise) {
-      return reason
-    }
-    return new APromise((resolve, reject) => {
-      reject(reason)
-    })
-  }
-
-  static any() {
-
-  }
-  static race() {
-
-  }
-
 }
 
-APromise.deferred = () => {
-  const adapter = {}
-  adapter.promise = new APromise((resolve, reject) => {
-    adapter.resolve = resolve
-    adapter.reject = reject
-  })
-  return adapter
-}
+// APromise.deferred = () => {
+//   const adapter = {}
+//   adapter.promise = new APromise((resolve, reject) => {
+//     adapter.resolve = resolve
+//     adapter.reject = reject
+//   })
+//   return adapter
+// }
 
-module.exports = APromise
+// module.exports = APromise
 
-const aPromise = new APromise((resolve, reject)=>{
-  resolve('resolve')
-}).then((value)=>{
-  console.log(value);
-  return 'then resolve'
-})
+// const aPromise = new APromise((resolve, reject) => {
+//   resolve('resolve')
+// }).then((value) => {
+//   console.log(value)
+//   return 'then resolve'
+// })

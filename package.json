@@ -1,12 +1,17 @@
 {
   "name": "vite-app",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.1.1",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test-promise": "promises-aplus-tests ./promise/promise.js"
+    "test-promise": "promises-aplus-tests promise/promise.ts"
+  },
+  "engines": {
+    "node": ">=16",
+    "pnpm": ">=7",
+    "npm": ">=7"
   },
   "dependencies": {
     "react": "^18.1.0",
@@ -16,9 +21,17 @@
     "redux": "^4.2.0"
   },
   "devDependencies": {
+    "@types/react": "^18.0.9",
+    "@types/react-dom": "^18.0.3",
+    "@typescript-eslint/eslint-plugin": "^5.23.0",
+    "@typescript-eslint/parser": "^5.23.0",
     "@vitejs/plugin-react": "^1.3.1",
+    "eslint": "^8.15.0",
+    "eslint-config-alloy": "^4.5.1",
+    "eslint-plugin-react": "^7.29.4",
     "prettier": "^2.6.1",
     "promises-aplus-tests": "^2.1.2",
-    "vite": "^2.9.5"
+    "typescript": "^4.6.4",
+    "vite": "^2.9.7"
   }
 }

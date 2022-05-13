@@ -1,8 +1,7 @@
 const lengthOfLongestSubstring = (str: string): number => {
   let max = 0
   let tmp = ''
-  for (let i = 0; i < str.length; i++) {
-    const char = str[i]
+  for (const char of str) {
     const findIndex = tmp.indexOf(char)
     tmp += char
     if (findIndex > -1) {

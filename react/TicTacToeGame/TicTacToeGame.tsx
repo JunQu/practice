@@ -2,9 +2,10 @@ import { Board } from './Board'
 import style from './game.module.css'
 import { useMemo, useState } from 'react'
 import { calculateWinner } from './helper'
+import type { SquareHistory } from './typing'
 
 export const TicTacToeGame = () => {
-  const [squaresHistory, setSquaresHistory] = useState([{ squares: Array(9).fill(null) }])
+  const [squaresHistory, setSquaresHistory] = useState<SquareHistory>([{ squares: Array(9).fill(null) }])
   const [stepNumber, setStepNumber] = useState(0)
   const [isNext, setIsNext] = useState(true)
 
@@ -13,9 +14,9 @@ export const TicTacToeGame = () => {
     return winner ? `Winner: ${winner}` : `Next player: ${isNext ? 'X' : 'O'}`
   }, [squaresHistory, stepNumber, isNext])
 
-  const handleClick = (i) => {
+  const handleClick = (i: number) => {
     const history = squaresHistory.slice(0, stepNumber + 1)
-    const squares = history.at(-1).squares.slice()
+    const squares = history.at(-1)!.squares.slice()
     if (squares[i] || calculateWinner(squares)) {
       return
     }
@@ -24,7 +25,7 @@ export const TicTacToeGame = () => {
     setIsNext(!isNext)
     setStepNumber(history.length)
   }
-  const jumTo = (step) => {
+  const jumTo = (step: number) => {
     setStepNumber(step)
     setIsNext(step % 2 === 0)
   }
