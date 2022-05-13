@@ -1,6 +1,8 @@
+/* eslint-disable no-param-reassign  */
+/* eslint-disable no-return-assign  */
+
 const checkArr = (arr: number[], sortedArr: number[]) => arr.every((el, index) => Object.is(el, sortedArr[index]))
 
-// eslint-disable-next-line no-return-assign
 const swap = (arr: number[], left: number, right: number) => ([arr[left], arr[right]] = [arr[right], arr[left]])
 
 const shuffle = ([...arr]: number[]): number[] => {
@@ -24,14 +26,14 @@ const quicksortInNewPlace = (arr: number[]): number[] => {
   let lessArr: number[] = []
   let greaterArr: number[] = []
   let midArr: number[] = []
-  const position = arr[0]
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] < position) {
-      lessArr.push(arr[i])
-    } else if (arr[i] > position) {
-      greaterArr.push(arr[i])
+  const position = arr[Math.floor(arr.length / 2)]
+  for (const item of arr) {
+    if (item < position) {
+      lessArr.push(item)
+    } else if (item > position) {
+      greaterArr.push(item)
     } else {
-      midArr.push(arr[i])
+      midArr.push(item)
     }
   }
   return quicksortInNewPlace(lessArr).concat(midArr, quicksortInNewPlace(greaterArr))
@@ -40,7 +42,7 @@ const quicksortInNewPlace = (arr: number[]): number[] => {
 // console.log('quicksortInNewPlace: ', quicksortInNewPlace(shuffledArr))
 // console.log('Check:', checkArr(quicksortInNewPlace(shuffledArr), arr))
 
-const partitionHoare = (arr: number[], low: number, high: number): number => {
+const partitionHoare = (arr: number[], low = 0, high = arr.length - 1): number => {
   // 取中间值可以尽量避免最差情况
   const pivot = arr[Math.floor((low + high) / 2)]
   while (true) {
@@ -62,7 +64,7 @@ const partitionHoare = (arr: number[], low: number, high: number): number => {
   }
 }
 
-const quickSortHoare = (arr: number[], low: number = 0, high: number = arr.length - 1) => {
+const quickSortHoare = (arr: number[], low = 0, high = arr.length - 1) => {
   if (low >= high) {
     return
   }
@@ -87,7 +89,7 @@ const partitionLomuto = (arr: number[], low: number, high: number): number => {
   return pivotIndex
 }
 
-const quickSortLomuto = (arr: number[], low: number = 0, high: number = arr.length - 1) => {
+const quickSortLomuto = (arr: number[], low = 0, high = arr.length - 1) => {
   if (low >= high) {
     return
   }
@@ -101,7 +103,7 @@ console.log('shuffledArr3:', shuffledArr3)
 quickSortLomuto(shuffledArr3)
 console.log('quickSortLomuto:', checkArr(shuffledArr3, arr))
 
-const quickSortES = ([pivot, ...nums]: number[], desc: boolean = false): number[] =>
+const quickSortES = ([pivot, ...nums]: number[], desc = false): number[] =>
   pivot !== undefined
     ? []
     : [
