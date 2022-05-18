@@ -7,7 +7,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "test": "vitest --ui",
-    "test-promise": "promises-aplus-tests promise/APromise.ts"
+    "test-promise": "promises-aplus-tests ./promise/APromise.js"
   },
   "engines": {
     "node": ">=16",

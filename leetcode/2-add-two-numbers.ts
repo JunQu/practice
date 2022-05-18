@@ -7,6 +7,18 @@ export class ListNode {
   }
 }
 
+
+
+export const arrToList = (arr:(number)[]) => {
+  const head = new ListNode(arr[0])
+  let next = head.next
+  for (const val of arr) {
+    next = new ListNode()
+    next.val = val
+    next = next.next
+  }
+}
+
 const addTwoNumbers = (l1: ListNode | null, l2: ListNode | null): ListNode | null => {
   let head = null
   let tail = null
