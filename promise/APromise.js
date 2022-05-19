@@ -224,5 +224,5 @@ class APromise {
   }
 }
 
-// @ts-ignore
+// to use in nodejs
 module.exports = APromise

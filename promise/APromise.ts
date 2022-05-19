@@ -1,7 +1,3 @@
-const PENDING = 'pending'
-const FULFILLED = 'fulfilled'
-const REJECTED = 'rejected'
-
 type StatusType = 'pending' | 'fulfilled' | 'rejected'
 type ResolveFn<T = unknown> = (value: T) => void
 type RejectFn = (reason: any) => void
@@ -15,7 +11,12 @@ type OnRejectedFn<TResult2> = ((reason: any) => TResult2 | APromise<TResult2>) |
 
 type SettledValue<T> = { status: 'fulfilled'; value: T } | { status: 'rejected'; reason: any }
 
+const PENDING = 'pending'
+const FULFILLED = 'fulfilled'
+const REJECTED = 'rejected'
+
 const isFunction = (fn: any): fn is Function => typeof fn === 'function'
+
 const isObject = (obj: any): obj is Object => obj !== null && typeof obj === 'object'
 
 const resolvePromise = <T>(promise2: APromise<T>, x: any, resolve: ResolveFn<T>, reject: RejectFn) => {
@@ -62,7 +63,7 @@ const resolvePromise = <T>(promise2: APromise<T>, x: any, resolve: ResolveFn<T>,
   }
 }
 
-class APromise<T = unknown> {
+export class APromise<T = unknown> {
   private status: StatusType = PENDING
   private value: T | undefined = undefined
   private reason: any = null
@@ -134,11 +135,11 @@ class APromise<T = unknown> {
     this.then(null, onReject)
   }
 
-  public finally = (callback: () => void) => {
+  public finally = (onFinally: (...args: any[]) => void) => {
     return this.then(
-      (value) => APromise.resolve(callback()).then(() => value),
+      (value) => APromise.resolve(onFinally()).then(() => value),
       (reason) =>
-        APromise.resolve(callback()).then(() => {
+        APromise.resolve(onFinally()).then(() => {
           throw reason
         })
     )
@@ -194,20 +195,21 @@ class APromise<T = unknown> {
     })
   }
 
-  public static any<T>(promises:Array<APromise<T>>) {
+  public static any<T>(promises: Array<APromise<T>>) {
     return new APromise<T>((resolve, reject) => {
       let count = 0
       const errMessage = 'All promises were rejected'
       const errors: Error[] = Array(promises.length)
+
       promises.forEach((promiseVal, index) => {
-        promiseVal.then(resolve).catch(reason=>{
+        promiseVal.then(resolve).catch((reason) => {
           count += 1
           errors[index] = reason
-          if(count === promises.length) {
-            try{
+          if (count === promises.length) {
+            try {
               // eslint-disable-next-line no-undef
               throw new AggregateError(errors, errMessage)
-            } catch(e) {
+            } catch (e) {
               reject(e)
             }
           }
@@ -228,8 +230,8 @@ class APromise<T = unknown> {
     if (value instanceof APromise) {
       return value
     }
-    return new APromise<T>((resolve) => {
-      resolve(value)
+    return new APromise<T>((_resolve) => {
+      _resolve(value)
     })
   }
 
@@ -237,21 +239,19 @@ class APromise<T = unknown> {
     if (reason instanceof APromise) {
       return reason
     }
-    return new APromise((resolve, reject) => {
-      reject(reason)
+    return new APromise((resolve, _reject) => {
+      _reject(reason)
     })
   }
 
+  // this static method is used to promises-aplus-tests test
   public static deferred() {
     let resolve
     let reject
-    const promise = new APromise((res, rej) => {
-      resolve = res
-      reject = rej
+    const promise = new APromise((_resolve, _reject) => {
+      resolve = _resolve
+      reject = _reject
     })
     return { resolve, reject, promise }
   }
 }
-
-// @ts-ignore
-module.exports = APromise
