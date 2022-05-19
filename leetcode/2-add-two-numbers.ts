@@ -1,23 +1,4 @@
-export class ListNode {
-  val: number
-  next: ListNode | null
-  constructor(val?: number, next?: ListNode | null) {
-    this.val = val === undefined ? 0 : val
-    this.next = next === undefined ? null : next
-  }
-}
-
-
-
-export const arrToList = (arr:(number)[]) => {
-  const head = new ListNode(arr[0])
-  let next = head.next
-  for (const val of arr) {
-    next = new ListNode()
-    next.val = val
-    next = next.next
-  }
-}
+import { ListNode } from "./helper/LinkedListHelper"
 
 const addTwoNumbers = (l1: ListNode | null, l2: ListNode | null): ListNode | null => {
   let head = null
