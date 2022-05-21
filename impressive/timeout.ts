@@ -1,4 +1,3 @@
-// 使用 setTimeout 模拟实现 setInterval
 /**
  * 使用 setTimeout 模拟实现 setInterval
  * setInterval 的缺点 ：和 setTimeout 一样，不准确

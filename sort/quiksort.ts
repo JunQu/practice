@@ -3,7 +3,9 @@
 
 const checkArr = (arr: number[], sortedArr: number[]) => arr.every((el, index) => Object.is(el, sortedArr[index]))
 
-const swap = (arr: number[], left: number, right: number) => ([arr[left], arr[right]] = [arr[right], arr[left]])
+const swap = (arr: number[], left: number, right: number) => {
+  ;[arr[left], arr[right]] = [arr[right], arr[left]]
+}
 
 const shuffle = ([...arr]: number[]): number[] => {
   let currentIndex: number = arr.length

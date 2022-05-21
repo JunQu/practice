@@ -32,9 +32,7 @@ const createSquare = (config: SquareConfig): void => {
 const mySquare = createSquare({ color: 'red', width: 100 })
 
 // function type
-interface SearchFunc {
-  (source: string, substring: string): boolean
-}
+type SearchFunc = (source: string, substring: string) => boolean
 
 let meSearch: SearchFunc
 meSearch = (source, substring) => {
@@ -50,7 +48,8 @@ const mfSearch = (source: string, substring: string) => {
 interface StringAttay {
   [arrIndex: number]: symbol
 }
-const myArray: StringAttay = [Symbol('12'), Symbol(22)]
+
+const myArray = [Symbol('12'), Symbol(22)]
 
 const strt = myArray[3]
 

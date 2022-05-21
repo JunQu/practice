@@ -6,7 +6,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "vitest --ui",
+    "test": "vitest",
     "test-promise": "promises-aplus-tests ./promise/APromise.js"
   },
   "engines": {
