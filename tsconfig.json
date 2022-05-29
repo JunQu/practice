@@ -2,6 +2,7 @@
   "compilerOptions": {
     "target": "ESNext",
     "useDefineForClassFields": true,
+    "types": ["vitest/globals"],
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "allowJs": false,
     "skipLibCheck": true,
@@ -13,15 +14,12 @@
     "moduleResolution": "Node",
     "resolveJsonModule": true,
     "isolatedModules": false,
-    "noEmit": true,
+    "noEmitOnError": true,
     "jsx": "react-jsx",
     "sourceMap": true
   },
   "include": [
-    "react",
-    "leetcode",
-    "promise",
-    "sort"
+    "typescript/*.ts"
   ],
   "exclude": [
     "node_modules"

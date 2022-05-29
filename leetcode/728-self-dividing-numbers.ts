@@ -1,4 +1,4 @@
-const selfDividingNumbers = function (left: number, right: number): number[] {
+export const selfDividingNumbers = function (left: number, right: number): number[] {
   let result = []
   for (let i = left; i <= right; i++) {
     let num = i
@@ -14,6 +14,3 @@ const selfDividingNumbers = function (left: number, right: number): number[] {
   }
   return result
 }
-
-const resultArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 22]
-console.log(selfDividingNumbers(1, 22).every((num, i) => num === resultArr[i]))
