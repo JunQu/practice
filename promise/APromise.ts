@@ -132,7 +132,7 @@ export class APromise<T = unknown> {
   }
 
   public catch = (onReject: RejectFn) => {
-    this.then(null, onReject)
+    return this.then(null, onReject)
   }
 
   public finally = (onFinally: (...args: any[]) => void) => {
@@ -242,16 +242,5 @@ export class APromise<T = unknown> {
     return new APromise((resolve, _reject) => {
       _reject(reason)
     })
-  }
-
-  // this static method is used to promises-aplus-tests test
-  public static deferred() {
-    let resolve
-    let reject
-    const promise = new APromise((_resolve, _reject) => {
-      resolve = _resolve
-      reject = _reject
-    })
-    return { resolve, reject, promise }
   }
 }

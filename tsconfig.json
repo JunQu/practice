@@ -2,7 +2,6 @@
   "compilerOptions": {
     "target": "ESNext",
     "useDefineForClassFields": true,
-    "types": ["vitest/globals"],
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "allowJs": false,
     "skipLibCheck": true,
@@ -18,10 +17,13 @@
     "jsx": "react-jsx",
     "sourceMap": true
   },
-  "include": [
-    "typescript/*.ts"
-  ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "build",
+    "dist",
+    ".idea",
+    ".history",
+    ".next",
+    ".vscode",
   ]
 }

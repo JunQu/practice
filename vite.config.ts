@@ -12,7 +12,8 @@ export default defineConfig((configEnv) => {
     plugins,
     root: rootPath,
     test: {
-      globals: true,
+      globals: false,
+      testTimeout: 30 * 1000,
     },
   }
 })
