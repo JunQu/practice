@@ -20,7 +20,7 @@ declare module 'promises-aplus-tests' {
      *  creates an object consisting of { promise, resolve, reject }
      *  - promise is a promise that is currently in the pending state.
      *  - resolve(value) resolves the promise with value.
-     *  - reject(reason) moves the promise from the pending state to the rejected state, with rejection reason reason.
+     *  - reject(reason) moves the promise from the pending state to the rejected state, with rejection reason.
      */
     deferred: () => { promise: { then: Function }; resolve?: (value: any) => void; reject?: (reason: any) => void }
   }
@@ -64,7 +64,7 @@ declare module 'promises-aplus-tests' {
   /**
    * Use with Mocha, but not recommended, outed mocha version
    * to use this, you should install mocha
-   * and import like: import * as  PromisesAplusTestsfrom 'promises-aplus-tests'
+   * and import like: import * as  PromisesAplusTests from 'promises-aplus-tests'
    * from: https://github.com/promises-aplus/promises-tests#within-an-existing-mocha-test-suite
    */
   export function mocha(adapter: Adapter): void
