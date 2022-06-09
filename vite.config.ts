@@ -15,5 +15,8 @@ export default defineConfig((configEnv) => {
       globals: false,
       testTimeout: 30 * 1000,
     },
+    esbuild: {
+      jsxFactory: 'mecat.createElement',
+    },
   }
 })

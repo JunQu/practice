@@ -1,12 +1,16 @@
-/* eslint-disable */
+/**
+ * Type for promises-aplus-tests module
+ * type/promises-aplus-test
+ * this is learned from the promises-tests repo on github
+ * repo link: https://github.com/promises-aplus/promises-tests
+ * repo description: Promises/A+ Tests
+ * repo license: MIT https://github.com/promises-aplus/promises-tests/blob/master/LICENSE.txt
+ * */
 declare module 'promises-aplus-tests' {
   /**
-   * this is learned from the promises-tests repo on github
-   * repo link: https://github.com/promises-aplus/promises-tests
-   * repo description: Promises/A+ Tests
-   * repo license: MIT https://github.com/promises-aplus/promises-tests/blob/master/LICENSE.txt
+   * creates adapter for promise methods test
+   * promises-aplus-test test resolve, reject, and then methods
    */
-
   export interface Adapter {
     /**
      * creates a promise that is resolved with value
@@ -32,6 +36,7 @@ declare module 'promises-aplus-tests' {
     timeout?: number
     ui?: string
     reporter?: string
+    [option: string]: any
   }
 
   interface PromiseTestsError extends Error {
@@ -47,6 +52,7 @@ declare module 'promises-aplus-tests' {
      * I don't know error data type
      * form： https://github.com/promises-aplus/promises-tests/blob/4786505fcb0cafabc5f5ce087e1df86358de2da6/lib/programmaticRunner.js#L58-L59
      */
+    // eslint-disable-next-line no-undef
     (err: PromiseTestsError | NodeJS.ErrnoException | null | undefined): void
   }
 
