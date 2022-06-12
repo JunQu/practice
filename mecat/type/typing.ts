@@ -38,12 +38,12 @@ export type ElementType = {
   }
 }
 
-export type Hook<T = unknown> = {
-  state: T
-  queue: Array<T>
+export type Hook<T = undefined> = {
+  state?: T
+  queue: ((preState: T) => T)[]
 }
 
-export type Fiber = {
+export type Fiber<T = undefined> = {
   type: DomNodeType | Function
   props: ElementType['props']
   dom: DomType | null // 对应生成真实的 DOM 节点
@@ -52,5 +52,5 @@ export type Fiber = {
   sibling?: Fiber
   effectTag?: 'UPDATE' | 'PLACEMENT' | 'DELETION'
   alternate?: Fiber | null // 记录旧 fiber 节点用于比较
-  hooks?: Array<Hook>
+  hooks?: Array<Hook<T>>
 }
