@@ -1,27 +1,9 @@
 /* eslint-disable no-param-reassign  */
 /* eslint-disable no-return-assign  */
 
-const checkArr = (arr: number[], sortedArr: number[]) => arr.every((el, index) => Object.is(el, sortedArr[index]))
+import { swap } from './helper'
 
-const swap = (arr: number[], left: number, right: number) => {
-  ;[arr[left], arr[right]] = [arr[right], arr[left]]
-}
-
-const shuffle = ([...arr]: number[]): number[] => {
-  let currentIndex: number = arr.length
-  while (currentIndex) {
-    const randomIndex: number = Math.floor(Math.random() * currentIndex)
-    currentIndex -= 1
-    swap(arr, randomIndex, currentIndex)
-  }
-  return arr
-}
-
-const arr = [-5, -1, -1, -1, 0, 2, 3, 5, 7, 7, 7, 7, 9, 9, 9, 10, 1000, 3213213]
-const shuffledArr = shuffle(arr)
-console.log('shuffledArr:', shuffledArr)
-
-const quicksortInNewPlace = (arr: number[]): number[] => {
+export const quicksortInNewPlace = (arr: number[]): number[] => {
   if (arr.length <= 1) {
     return arr
   }
@@ -40,9 +22,6 @@ const quicksortInNewPlace = (arr: number[]): number[] => {
   }
   return quicksortInNewPlace(lessArr).concat(midArr, quicksortInNewPlace(greaterArr))
 }
-
-// console.log('quicksortInNewPlace: ', quicksortInNewPlace(shuffledArr))
-// console.log('Check:', checkArr(quicksortInNewPlace(shuffledArr), arr))
 
 const partitionHoare = (arr: number[], low = 0, high = arr.length - 1): number => {
   // 取中间值可以尽量避免最差情况
@@ -66,7 +45,7 @@ const partitionHoare = (arr: number[], low = 0, high = arr.length - 1): number =
   }
 }
 
-const quickSortHoare = (arr: number[], low = 0, high = arr.length - 1) => {
+export const quickSortHoare = (arr: number[], low = 0, high = arr.length - 1) => {
   if (low >= high) {
     return
   }
@@ -74,9 +53,6 @@ const quickSortHoare = (arr: number[], low = 0, high = arr.length - 1) => {
   quickSortHoare(arr, low, pivotIndex)
   quickSortHoare(arr, pivotIndex + 1, high)
 }
-quickSortHoare(shuffledArr)
-console.log(shuffledArr)
-console.log('Check:', checkArr(shuffledArr, arr))
 
 const partitionLomuto = (arr: number[], low: number, high: number): number => {
   const pivot = arr[high]
@@ -91,7 +67,7 @@ const partitionLomuto = (arr: number[], low: number, high: number): number => {
   return pivotIndex
 }
 
-const quickSortLomuto = (arr: number[], low = 0, high = arr.length - 1) => {
+export const quickSortLomuto = (arr: number[], low = 0, high = arr.length - 1) => {
   if (low >= high) {
     return
   }
@@ -100,13 +76,8 @@ const quickSortLomuto = (arr: number[], low = 0, high = arr.length - 1) => {
   quickSortLomuto(arr, pivotIndex + 1, high)
 }
 
-const shuffledArr3 = shuffle(arr)
-console.log('shuffledArr3:', shuffledArr3)
-quickSortLomuto(shuffledArr3)
-console.log('quickSortLomuto:', checkArr(shuffledArr3, arr))
-
-const quickSortES = ([pivot, ...nums]: number[], desc = false): number[] =>
-  pivot !== undefined
+export const quickSortES = ([pivot, ...nums]: number[], desc = false): number[] =>
+  pivot === undefined
     ? []
     : [
         ...quickSortES(
@@ -119,9 +90,6 @@ const quickSortES = ([pivot, ...nums]: number[], desc = false): number[] =>
           desc
         ),
       ]
-
-// const shuffledArr2 = shuffle(arr)
-// console.log('quickSortES Check:', checkArr(quickSortES(shuffledArr2, true).reverse(), arr))
 
 const partitionIterative = (arr: number[], start: number, end: number): number => {
   const pivotValue = arr[end]
@@ -137,7 +105,7 @@ const partitionIterative = (arr: number[], start: number, end: number): number =
   return pivotIndex
 }
 
-const quickSortIterative = (arr: number[]): void => {
+export const quickSortIterative = (arr: number[]): void => {
   if (arr.length < 2) {
     return
   }
@@ -162,8 +130,3 @@ const quickSortIterative = (arr: number[]): void => {
     }
   }
 }
-
-const shuffledArr4 = shuffle(arr)
-console.log('shuffledArr4:', shuffledArr4)
-quickSortIterative(shuffledArr4)
-console.log('quickSortIterative:', checkArr(shuffledArr4, arr))

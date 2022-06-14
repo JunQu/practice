@@ -1,8 +1,8 @@
+import { swap } from './helper'
+
 const iLeftChild = (i: number) => 2 * i + 1
 const iRightChild = (i: number) => 2 * i + 2
 const iParent = (i: number) => Math.floor((i - 2) / 2)
-
-import { swap } from './helper'
 
 const heapify2 = (arr: number[], root: number, heapSize: number) => {
   const left = 2 * root + 1
