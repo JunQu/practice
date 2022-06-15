@@ -4,6 +4,8 @@ import { heapsort, heapsort2 } from './heapsort'
 import { quicksortInNewPlace, quickSortES, quickSortIterative, quickSortHoare, quickSortLomuto } from './quicksort'
 import { selectionsort } from './selectionsort'
 import { bubblesort } from './bubblesort'
+import { insertsort } from './insertsort'
+import { mergeSortBottomUp, mergesort } from './mergesort'
 
 // eslint-disable-next-line @typescript-eslint/no-invalid-void-type
 type SortFunc = (arr: number[]) => number[] | void
@@ -94,8 +96,24 @@ describe('Array Sort Tests', () => {
   })
 
   describe('bubble sort tests', () => {
-    it.skip('bubble sort', () => {
+    it('bubble sort', () => {
       testSortFunc(bubblesort)
+    })
+  })
+
+  describe('insert sort tests', () => {
+    it('bubble sort basic', () => {
+      testSortFunc(insertsort)
+    })
+  })
+
+  describe('merge sort tests', () => {
+    it('merge sort return new array', () => {
+      testSortFunc(mergesort, false)
+    })
+
+    it('merge sort changed item in place', () => {
+      testSortFunc(mergeSortBottomUp)
     })
   })
 })
