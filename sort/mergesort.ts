@@ -1,6 +1,3 @@
-import { Simulate } from 'react-dom/test-utils'
-import copy = Simulate.copy
-
 export const mergesort = (arr: number[]): number[] => {
   const len = arr.length
   if (len < 2) {
