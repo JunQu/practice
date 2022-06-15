@@ -2,18 +2,24 @@ import { it, expect, describe } from 'vitest'
 import { shuffle } from './helper'
 import { heapsort, heapsort2 } from './heapsort'
 import { quicksortInNewPlace, quickSortES, quickSortIterative, quickSortHoare, quickSortLomuto } from './quicksort'
+import { selectionsort } from './selectionsort'
+import { bubblesort } from './bubblesort'
+
+// eslint-disable-next-line @typescript-eslint/no-invalid-void-type
+type SortFunc = (arr: number[]) => number[] | void
 
 describe('Array Sort Tests', () => {
-  const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  const arr = [...''.padEnd(100)].map((_, i) => i + 1)
   const arrRepeat = [1, 2, 2, 3, 3, 3, 4, 5, 7, 7, 8, 9, 9, 9, 10]
 
   const getTestArr = () => {
+    const arrSorted = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     const arrShuffled = [7, 10, 6, 3, 9, 1, 5, 2, 4, 8]
 
     return [
       {
         arr: arrShuffled,
-        compare: arr,
+        compare: arrSorted,
       },
       {
         arr: shuffle(arr),
@@ -38,62 +44,58 @@ describe('Array Sort Tests', () => {
     ]
   }
 
-  describe('quicksort tests', () => {
-    it('quick in New Place version ', () => {
-      for (const testItem of getTestArr()) {
-        expect(testItem.arr).not.toEqual(testItem.compare)
-        const sortedArr = quicksortInNewPlace(testItem.arr)
+  const testSortFunc = (sortFunc: SortFunc, isVoid = true): void => {
+    for (const testItem of getTestArr()) {
+      expect(testItem.arr).not.toEqual(testItem.compare)
+      const sortedArr = sortFunc(testItem.arr)
+      if (isVoid) {
+        expect(testItem.arr).toStrictEqual(testItem.compare)
+      } else {
         expect(sortedArr).toStrictEqual(testItem.compare)
       }
-    })
+    }
+  }
 
+  describe('quicksort tests', () => {
     it('quick in Hoare version ', () => {
-      for (const testItem of getTestArr()) {
-        expect(testItem.arr).not.toEqual(testItem.compare)
-        quickSortHoare(testItem.arr)
-        expect(testItem.arr).toStrictEqual(testItem.compare)
-      }
+      testSortFunc(quickSortHoare)
     })
 
     it('quick in Lomuto version ', () => {
-      for (const testItem of getTestArr()) {
-        expect(testItem.arr).not.toEqual(testItem.compare)
-        quickSortLomuto(testItem.arr)
-        expect(testItem.arr).toStrictEqual(testItem.compare)
-      }
+      testSortFunc(quickSortLomuto)
+    })
+    it('quick in Iterative version ', () => {
+      testSortFunc(quickSortIterative)
     })
 
     it('quick in ES6 version ', () => {
-      for (const testItem of getTestArr()) {
-        expect(testItem.arr).not.toEqual(testItem.compare)
-        const arrSorted = quickSortES(testItem.arr)
-        expect(arrSorted).toStrictEqual(testItem.compare)
-      }
+      testSortFunc(quickSortES, false)
     })
 
-    it('quick in Iterative version ', () => {
-      for (const testItem of getTestArr()) {
-        expect(testItem.arr).not.toEqual(testItem.compare)
-        quickSortIterative(testItem.arr)
-        expect(testItem.arr).toStrictEqual(testItem.compare)
-      }
+    it('quick in New Place version ', () => {
+      testSortFunc(quicksortInNewPlace, false)
     })
   })
 
   describe('Heap sort tests', () => {
-    it('heap sort for version ', () => {
-      for (const testItem of getTestArr()) {
-        expect(testItem.arr).not.toEqual(testItem.compare)
-        heapsort2(testItem.arr)
-        expect(testItem.arr).toStrictEqual(testItem.compare)
-      }
-    })
     it('heap sort while version', () => {
-      for (const testItem of getTestArr()) {
-        expect(testItem.arr).not.toEqual(testItem.compare)
-        heapsort(testItem.arr)
-        expect(testItem.arr).toStrictEqual(testItem.compare)
-      }
+      testSortFunc(heapsort)
+    })
+
+    it('heap sort for version ', () => {
+      testSortFunc(heapsort2)
+    })
+  })
+
+  describe('selection sort tests', () => {
+    it('section sort', () => {
+      testSortFunc(selectionsort)
+    })
+  })
+
+  describe('bubble sort tests', () => {
+    it.skip('bubble sort', () => {
+      testSortFunc(bubblesort)
     })
   })
 })
