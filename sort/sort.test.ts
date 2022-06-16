@@ -7,9 +7,10 @@ import { bubblesort } from './bubblesort'
 import { insertsort } from './insertsort'
 import { mergeSortBottomUp, mergesort } from './mergesort'
 import { shellsort } from './shellsort'
+import { countingsourt } from './countingsourt'
 
 // eslint-disable-next-line @typescript-eslint/no-invalid-void-type
-type SortFunc = (arr: number[]) => number[] | void
+type SortFunc = (arr: number[], ...args: any[]) => number[] | void
 
 describe('Array Sort Tests', () => {
   const arr = [...''.padEnd(100)].map((_, i) => i + 1)
@@ -47,10 +48,10 @@ describe('Array Sort Tests', () => {
     ]
   }
 
-  const testSortFunc = (sortFunc: SortFunc, isVoid = true): void => {
+  const testSortFunc = (sortFunc: SortFunc, isVoid = true, ...args: number[]): void => {
     for (const testItem of getTestArr()) {
       expect(testItem.arr).not.toEqual(testItem.compare)
-      const sortedArr = sortFunc(testItem.arr)
+      const sortedArr = sortFunc(testItem.arr, ...args)
       if (isVoid) {
         expect(testItem.arr).toStrictEqual(testItem.compare)
       } else {
@@ -119,8 +120,18 @@ describe('Array Sort Tests', () => {
   })
 
   describe('shell sort tests', () => {
-    it.only('shell sort basic', () => {
+    it('shell sort basic', () => {
       testSortFunc(shellsort)
+    })
+  })
+
+  describe('distribution sorts tests', () => {
+    it.only('shell sort basic', () => {
+      for (const testItem of getTestArr().slice(1)) {
+        expect(testItem.arr).not.toEqual(testItem.compare)
+        const sortedArr = countingsourt(testItem.arr, 100)
+        expect(sortedArr).toStrictEqual(testItem.compare)
+      }
     })
   })
 })

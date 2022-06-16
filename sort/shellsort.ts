@@ -8,7 +8,7 @@ export const shellsort = (arr: number[]): void => {
   let gap = Math.floor(arr.length / 2)
   /**
    * gap 表示分组的间隔，把整个数组分成几个大块
-   * gap 因子很影响排序，所以一般采用[1,3,7...2^n -1]，或者 [701, 301, 132, 57, 23, 10, 4, 1] Ciura gap
+   * gap 因子很影响排序，所以一般采用[2^n -1,...,7,3,1]，或者 [701, 301, 132, 57, 23, 10, 4, 1] Ciura gap
    * 这里采用的通用方法，最坏情况是 O(n*n)
    * */
   while (gap > 0) {
