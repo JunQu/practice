@@ -10,6 +10,10 @@ export const mergesort = (arr: number[]): number[] => {
   return merge(mergesort(left), mergesort(right))
 }
 
+/**
+ * 这就是 https://leetcode.cn/problems/merge-sorted-array/ 的解法
+ * 可以先做 leecode 88 题
+ */
 const merge = (left: number[], right: number[]): number[] => {
   const result = []
   let iLeft = 0
@@ -41,13 +45,14 @@ const merge = (left: number[], right: number[]): number[] => {
  * */
 export const mergeSortBottomUp = (arr: number[]): void => {
   const len = arr.length
-  /***
+  // 缓存每次合并后结果的数组，它是原数组每次调整后的结果
+  const workArr = Array<number>(len)
+  /**
    * 最初把每一个元素看作一个单独地集合，这个过程是把每个子集合从底部向上合并
    * 每次合并后，通常子集合每次长度都会增加一倍，因为是每两个集合合并成一个
+   * width 表示当前子集合的长度
    */
   for (let width = 1; width < len; width *= 2) {
-    // 缓存每次合并后结果的数组，它是原数组每次调整后的结果
-    const workArr = Array<number>(len)
     for (let i = 0; i < len; i = i + 2 * width) {
       /**
        * 通过不同的索引分割再合并，width 控制每个子集合的大小，此时说的都是数组索引，类似1与2合并，3与4 ，，第二轮是 合并后的 1 与 合并后的3 （此时1、2已经合并，3、4已经合并），依次全部合并

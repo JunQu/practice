@@ -6,6 +6,7 @@ import { selectionsort } from './selectionsort'
 import { bubblesort } from './bubblesort'
 import { insertsort } from './insertsort'
 import { mergeSortBottomUp, mergesort } from './mergesort'
+import { shellsort } from './shellsort'
 
 // eslint-disable-next-line @typescript-eslint/no-invalid-void-type
 type SortFunc = (arr: number[]) => number[] | void
@@ -102,7 +103,7 @@ describe('Array Sort Tests', () => {
   })
 
   describe('insert sort tests', () => {
-    it('bubble sort basic', () => {
+    it('insert sort basic', () => {
       testSortFunc(insertsort)
     })
   })
@@ -114,6 +115,12 @@ describe('Array Sort Tests', () => {
 
     it('merge sort changed item in place', () => {
       testSortFunc(mergeSortBottomUp)
+    })
+  })
+
+  describe('shell sort tests', () => {
+    it.only('shell sort basic', () => {
+      testSortFunc(shellsort)
     })
   })
 })
