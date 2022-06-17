@@ -3,7 +3,7 @@ import { swap } from './helper'
 export const selectionsort = (arr: number[]): void => {
   for (let i = 0; i < arr.length - 1; i++) {
     let min = i
-    // 循环的作用是找到当前位置的元素，因为是升序，所以这里寻找后面元素当中的最小元素
+    // 循环的作用是找到当前元素的位置，往后面比较，找到没有比他更大的最小位置，那么这个位置就是它的
     for (let j = i + 1; j < arr.length; j++) {
       min = arr[min] > arr[j] ? j : min
     }

@@ -126,7 +126,7 @@ describe('Array Sort Tests', () => {
   })
 
   describe('distribution sorts tests', () => {
-    it.only('shell sort basic', () => {
+    it('shell sort basic', () => {
       for (const testItem of getTestArr().slice(1)) {
         expect(testItem.arr).not.toEqual(testItem.compare)
         const sortedArr = countingsourt(testItem.arr, 100)
