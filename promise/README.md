@@ -8,7 +8,7 @@
 **运行测试**
 安装好依赖（`Vite,Vitest, Promise-tests`）后，使用如下命令测试:
 ```bash
-vitest run ./promise.test.ts  --threads false
+vitest run ./promise.solution.test.ts  --threads false
 ```
 
 
