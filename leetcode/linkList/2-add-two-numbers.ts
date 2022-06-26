@@ -1,4 +1,4 @@
-import { ListNode } from "./helper/LinkedListHelper"
+import { ListNode } from '../helper/linkedList'
 
 const addTwoNumbers = (l1: ListNode | null, l2: ListNode | null): ListNode | null => {
   let head = null

@@ -1,5 +1,5 @@
-import { ListNode } from './helper/LinkedListHelper'
-import { arrToList } from './helper/LinkedListHelper'
+import { ListNode } from '../helper/linkedList'
+import { arrToList } from '../helper/linkedList'
 
 const mergeTwoLists = (list1: ListNode | null, list2: ListNode | null): ListNode | null => {
   let next: ListNode | null = new ListNode()
