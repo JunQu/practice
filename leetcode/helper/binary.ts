@@ -10,6 +10,7 @@ export class TreeNode {
   }
 }
 
+// 该方法处理有缺陷，无法处理类似 [1,null,2,3] 这样的数据
 export const arrToTree = (arr: (number | null)[], root = 0) => {
   if (root >= arr.length || typeof arr[root] !== 'number') {
     return null
