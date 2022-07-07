@@ -1,7 +1,7 @@
-import { inorderTraversal } from './94-binary-tree-inorder-traversal'
 import { it, expect, describe } from 'vitest'
-import { arrToTree } from '../helper/binary'
+import { numsToTree as arrToTree } from 'numstree'
 import { isSymmetric } from './101-symmetric-tree'
+import { inorderTraversal } from './94-binary-tree-inorder-traversal'
 import { preorderTraversal } from './144-binary-tree-preorder-traversal'
 import { postorderTraversal } from './145-binary-tree-postorder-traversal'
 

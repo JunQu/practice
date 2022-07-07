@@ -10,6 +10,7 @@ specifiers:
   eslint: ^8.16.0
   eslint-config-alloy: ^4.5.1
   eslint-plugin-react: ^7.30.0
+  numstree: ^1.0.0
   prettier: ^2.6.2
   promises-aplus-tests: ^2.1.2
   react: ^18.1.0
@@ -38,6 +39,7 @@ devDependencies:
   eslint: 8.16.0
   eslint-config-alloy: 4.5.1
   eslint-plugin-react: 7.30.0_eslint@8.16.0
+  numstree: 1.0.0
   prettier: 2.6.2
   promises-aplus-tests: 2.1.2
   typescript: 4.7.2
@@ -1883,6 +1885,11 @@ packages:
 
   /node-releases/2.0.5:
     resolution: {integrity: sha512-U9h1NLROZTq9uE1SNffn6WuPDg8icmi3ns4rEl/oTfIle4iLjTliCzgTsbaIFMq/Xn078/lfY/BL0GWZ+psK4Q==}
+    dev: true
+
+  /numstree/1.0.0:
+    resolution: {integrity: sha512-NCWJBhbMjug/3x8J6iAvEYjygTC3F7W391bKdjdzpR/mSVr7VlhyjY5MB8wUwA+OV9dEZXTGdB0klxHP2SKoSA==}
+    engines: {node: '>=12'}
     dev: true
 
   /object-assign/4.1.1:
