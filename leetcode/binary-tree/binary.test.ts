@@ -4,6 +4,7 @@ import { isSymmetric } from './101-symmetric-tree'
 import { inorderTraversal } from './94-binary-tree-inorder-traversal'
 import { preorderTraversal } from './144-binary-tree-preorder-traversal'
 import { postorderTraversal } from './145-binary-tree-postorder-traversal'
+import { leveOrder } from './102-binary-tree-level-order-traversal'
 
 describe('二叉树的基本遍历', () => {
   it('前序遍历', () => {
@@ -28,7 +29,19 @@ describe('二叉树的基本遍历', () => {
     expect(postorderTraversal(tree2)).toEqual([8, 9, 4, 0, 5, 2, 6, 7, 3, 1])
   })
 
-  it('层序遍历', () => {})
+  it('层序遍历', () => {
+    const tree1 = arrToTree([3, 9, 20, null, null, 15, 7])
+    const tree2 = arrToTree([1])
+    const tree3 = arrToTree([])
+
+    const order1 = [[3], [9, 20], [15, 7]]
+    const order2 = [[1]]
+    const order3: number[] = []
+
+    expect(leveOrder(tree1)).toEqual(order1)
+    expect(leveOrder(tree2)).toEqual(order2)
+    expect(leveOrder(tree3)).toEqual(order3)
+  })
 })
 
 describe('二叉树的比较', () => {
