@@ -6,8 +6,9 @@ export const Button = () => {
   useEffect(() => {
     setTimeout(() => {
       console.log(count)
-    }, 10 * 1000)
-  }, [count])
+      setCount(() => count + 1)
+    }, 1000)
+  }, [])
 
-  return <button onClick={() => setCount(count + 1)}>Button</button>
+  return <button onClick={() => setCount(count + 1)}>{count}</button>
 }
