@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "types": ["vitest/globals"],
+    "useDefineForClassFields": true,
+    "allowJs": false,
+    "skipLibCheck": true,
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "isolatedModules": false,
+    "jsx": "react-jsx",
+  },
+  "exclude": [
+    "node_modules",
+    "build",
+    "dist",
+    ".idea",
+    ".history",
+    ".next",
+    ".vscode",
+  ]
+}

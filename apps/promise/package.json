@@ -1,0 +1,12 @@
+{
+  "name": "promise",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "test": "vitest run __tests__/promise.test.ts --threads false"
+  },
+  "dependencies": {
+    "promises-aplus-tests": "^2.1.2",
+    "vitest": "^0.21.1"
+  }
+}

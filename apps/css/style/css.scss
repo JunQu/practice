@@ -1,0 +1,18 @@
+
+body {
+  margin: 0;
+}
+
+
+main {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.item {
+  display: flex;
+  width: 100px;
+  height: 100px;
+  background-color: tan;
+}

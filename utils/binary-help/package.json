@@ -1,0 +1,14 @@
+{
+  "name": "binary-help",
+  "version": "1.0.0",
+  "main": "./src/index.ts",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc ./src/*.ts",
+    "test": "vitest run __tests__"
+  },
+  "devDependencies": {
+    "vitest": "^0.21.1"
+  }
+}

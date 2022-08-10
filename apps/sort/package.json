@@ -1,0 +1,12 @@
+{
+  "name": "sort",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "test": "vitest run __tests__"
+  },
+  "devDependencies": {
+    "vitest": "^0.21.1"
+  }
+}

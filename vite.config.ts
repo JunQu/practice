@@ -12,7 +12,7 @@ export default defineConfig((configEnv) => {
     plugins,
     root: rootPath,
     test: {
-      globals: false,
+      globals: true,
       testTimeout: 30 * 1000,
     },
     esbuild: {

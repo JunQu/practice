@@ -3,7 +3,6 @@ module.exports = {
   env: {
     browser: true,
     node: true,
-    mocha: false,
     jest: true,
   },
   ignorePatterns: ['leetcode/**/*.ts'],
