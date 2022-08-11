@@ -3,19 +3,19 @@ import { findKthLargest } from '../array/215-kth-largest-element-in-an-array'
 import { maxArea } from '../array/11-container-with-most-water'
 
 describe('Top K th in array', () => {
-  it('正常情况', function () {
+  it('正常情况', () => {
     const arr = [3, 2, 1, 5, 6, 4]
     const k = 2
     expect(findKthLargest(arr, k)).toBe(5)
   })
 
-  it('重复的情况', function () {
+  it('重复的情况', () => {
     const arr = [3, 2, 3, 1, 2, 4, 5, 5, 6]
     const k = 4
     expect(findKthLargest(arr, k)).toBe(4)
   })
 
-  it('超过的情况', function () {
+  it('超过的情况', () => {
     const arr = [3, 2, 3, 1, 2, 4, 5, 5, 6]
     const k = 10
     expect(findKthLargest(arr, k)).toBe(1)

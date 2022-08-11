@@ -1,0 +1,10 @@
+build
+node_modules
+dist
+
+.idea
+.vscode
+.next
+.github
+.story
+
