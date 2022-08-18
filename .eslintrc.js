@@ -1,3 +1,4 @@
+// test connect
 module.exports = {
   root: true,
   extends: ['alloy', 'alloy/typescript'],
