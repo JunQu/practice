@@ -1,7 +1,6 @@
 import { inputStream } from './until.js'
-import { tmpdir } from 'os'
 
-const readline = inputStream('2', '1 2', '2 1')
+const readline = inputStream('7', '5 4 1 2 3 ')
 let line
 
 /*
@@ -47,25 +46,31 @@ let line
  *
  *  j41
  *
+ * j74
+ * j75
+ * j92
+ * j93
+ * j26
+ *
+ *
  * */
 
 // eslint-disable-next-line no-cond-assign
 while ((line = readline())) {
-  const n = parseInt(line, 10)
-  const wights = readline()
-    .split(' ')
-    .map((v) => parseInt(v, 10))
   const nums = readline()
     .split(' ')
     .map((v) => parseInt(v, 10))
-  const set = new Set([0])
-  for (let i = 0; i < wights.length; i++) {
-    for (let j = 1; j <= nums[i]; j++) {
-      const arr = [...set]
-      for (let k = 0; k <= arr.length; k++) {
-        set.add(arr[i] + wights[i] * j)
+  const dp = [1]
+  let max = 1
+
+  for (let i = 1; i < nums.length; i++) {
+    dp[i] = 1
+    for (let j = i - 1; j >= 0; j--) {
+      if (dp[j] >= dp[i] && nums[i] > nums[j]) {
+        dp[i] = dp[j] + 1
+        max = dp[i] > max ? dp[i] : max
       }
     }
   }
-  console.log(set.size)
+  console.log(max)
 }
