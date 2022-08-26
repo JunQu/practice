@@ -115,6 +115,12 @@ importers:
     devDependencies:
       vitest: 0.21.1
 
+  apps/targeted:
+    specifiers:
+      vitest: ^0.21.1
+    devDependencies:
+      vitest: 0.21.1
+
   utils/arr-help:
     specifiers:
       vitest: ^0.21.1
