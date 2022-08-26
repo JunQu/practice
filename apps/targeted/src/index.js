@@ -1,6 +1,6 @@
 import { inputStream } from './until.js'
 
-const readline = inputStream('7', '5 4 1 2 3 ')
+const readline = inputStream('10')
 let line
 
 /*
@@ -44,7 +44,7 @@ let line
  *  j68
  *
  *
- *  j41
+ *  j41 痛苦的遍历题目
  *
  * j74
  * j75
@@ -53,24 +53,14 @@ let line
  * j26
  *
  *
+ *
+ *  j43
+ *
+ *
+ *
  * */
 
 // eslint-disable-next-line no-cond-assign
 while ((line = readline())) {
-  const nums = readline()
-    .split(' ')
-    .map((v) => parseInt(v, 10))
-  const dp = [1]
-  let max = 1
-
-  for (let i = 1; i < nums.length; i++) {
-    dp[i] = 1
-    for (let j = i - 1; j >= 0; j--) {
-      if (dp[j] >= dp[i] && nums[i] > nums[j]) {
-        dp[i] = dp[j] + 1
-        max = dp[i] > max ? dp[i] : max
-      }
-    }
-  }
-  console.log(max)
+  console.log(line)
 }

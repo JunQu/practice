@@ -1,4 +1,4 @@
-export function rob(nums: number[]): number {
+export function rob2(nums: number[]): number {
   if (nums.length === 1) {
     return nums[0]
   }

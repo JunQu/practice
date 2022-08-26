@@ -1,8 +1,11 @@
 import { expect } from 'vitest'
 import { rob } from '../dp/198-house-robber'
-import { rob as rob2 } from '../dp/213-house-robber-ii'
+import { rob2 } from '../dp/213-house-robber-ii'
+import { rob3 } from '../dp/337-house-robber-III'
 import { minPathSum } from '../dp/64-minimun-path-sum'
 import { lengthOfLIS } from '../dp/300-longest-increasing-subsequence'
+import { hj61ApplesPlates } from '../dp/hj61-apples-plates'
+import { numsToTree } from 'numstree'
 
 it('198 house robber', () => {
   const arr = [1, 2, 3, 1]
@@ -21,6 +24,16 @@ it('213 house robber II', () => {
   expect(rob2(nums2)).toBe(4)
   expect(rob2(nums3)).toBe(3)
   expect(rob2(nums4)).toBe(2)
+})
+
+it.only('337 house robber III', () => {
+  const root1 = numsToTree([3, 2, 3, null, 3, null, 1])
+  const root2 = numsToTree([3, 4, 5, 1, 3, null, 1])
+  const root3 = numsToTree([2, 1, 3, null, 4])
+
+  expect(rob3(root1)).toBe(7)
+  expect(rob3(root2)).toBe(9)
+  expect(rob3(root3)).toBe(7)
 })
 
 it('64 min path ', () => {
@@ -56,4 +69,10 @@ it.only('300 long increasing subsequence', () => {
   expect(lengthOfLIS(nums2)).toBe(4)
   expect(lengthOfLIS(nums3)).toBe(1)
   expect(lengthOfLIS(nums4)).toBe(6)
+})
+
+it.only('apples plates', () => {
+  const item1 = [7, 3]
+
+  expect(hj61ApplesPlates(item1[0], item1[1])).toBe(8)
 })
