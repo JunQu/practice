@@ -1,7 +1,6 @@
 import { inputStream } from './until.js'
-import { tmpdir } from 'os'
 
-const readline = inputStream('2', '1 2', '2 1')
+const readline = inputStream('4 2 K A')
 let line
 
 /*
