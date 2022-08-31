@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { findKthLargest } from '../array/215-kth-largest-element-in-an-array'
 import { maxArea } from '../array/11-container-with-most-water'
 import { primePartner } from '../array/hj28-prime-partiner'
+import { maxEnvelopes } from '../array/354-russian-doll-envelopes'
 
 describe('Top K th in array', () => {
   it('正常情况', () => {
@@ -51,4 +52,48 @@ it('hj28  素数伴侣  匈牙利算法，最多匹配 ', () => {
   expect(primePartner(arr2)).toBe(1)
   expect(primePartner(arr3)).toBe(2)
   expect(primePartner(arr4)).toBe(3)
+})
+
+it.only('354 俄罗斯套娃信封问题', () => {
+  const envelopes1 = [
+    [5, 4],
+    [6, 4],
+    [6, 7],
+    [2, 3],
+  ]
+  const envelopes2 = [
+    [1, 1],
+    [1, 1],
+    [1, 1],
+  ]
+  const envelopes3 = [
+    [1, 3],
+    [3, 5],
+    [6, 7],
+    [6, 8],
+    [8, 4],
+    [9, 5],
+  ]
+  const envelopes4 = [
+    [10, 8],
+    [1, 12],
+    [6, 15],
+    [2, 18],
+  ]
+  const envelopes5 = [
+    [1, 2],
+    [2, 3],
+    [3, 4],
+    [4, 5],
+    [5, 6],
+    [5, 5],
+    [6, 7],
+    [7, 8],
+  ]
+
+  expect(maxEnvelopes(envelopes1)).toBe(3)
+  expect(maxEnvelopes(envelopes2)).toBe(1)
+  expect(maxEnvelopes(envelopes3)).toBe(3)
+  expect(maxEnvelopes(envelopes4)).toBe(2)
+  expect(maxEnvelopes(envelopes5)).toBe(7)
 })
