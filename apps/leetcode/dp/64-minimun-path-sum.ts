@@ -20,6 +20,6 @@ export const minPathSum = (grid: number[][]): number => {
       dp[m][n] = Math.min(dp[m - 1][n], dp[m][n - 1]) + grid[m][n]
     }
   }
-  console.log(dp)
+  // console.log(dp)
   return dp[col - 1][row - 1]
 }

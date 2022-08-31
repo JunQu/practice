@@ -5,13 +5,6 @@ let line
 
 /*
  *
- * j31
- * j40
- * j73
- * j84
- * j106
- * j34
- * j81
  * j54
  * j85*
  *
@@ -45,19 +38,6 @@ let line
  *
  *
  *  j41 痛苦的遍历题目
- *
- * j74
- * j75
- * j92
- * j93
- * j26
- *
- *
- *
- *  j43
- *
- *
- *
  * */
 
 // eslint-disable-next-line no-cond-assign

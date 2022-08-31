@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { findKthLargest } from '../array/215-kth-largest-element-in-an-array'
 import { maxArea } from '../array/11-container-with-most-water'
+import { primePartner } from '../array/hj28-prime-partiner'
 
 describe('Top K th in array', () => {
   it('正常情况', () => {
@@ -38,4 +39,16 @@ describe('11 盛最多水的容器', () => {
     expect(maxArea(height1)).toBe(49)
     expect(maxArea(height2)).toBe(70)
   })
+})
+
+it('hj28  素数伴侣  匈牙利算法，最多匹配 ', () => {
+  const arr1 = [3, 6]
+  const arr2 = [3, 14]
+  const arr3 = [2, 5, 6, 13]
+  const arr4 = [2, 5, 6, 13, 8, 23]
+
+  expect(primePartner(arr1)).toBe(0)
+  expect(primePartner(arr2)).toBe(1)
+  expect(primePartner(arr3)).toBe(2)
+  expect(primePartner(arr4)).toBe(3)
 })
