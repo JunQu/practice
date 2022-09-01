@@ -1,6 +1,6 @@
 import { inputStream } from './until.js'
 
-const readline = inputStream('4 2 K A')
+const readline = inputStream('3', '2', '2', '1')
 let line
 
 /*
@@ -42,5 +42,6 @@ let line
 
 // eslint-disable-next-line no-cond-assign
 while ((line = readline())) {
-  console.log(line)
+  const count = parseInt(line, 16)
+  console.log(count)
 }
