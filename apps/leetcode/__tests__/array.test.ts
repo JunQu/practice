@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { findKthLargest } from '../array/215-kth-largest-element-in-an-array'
 import { maxArea } from '../array/11-container-with-most-water'
 import { primePartner } from '../array/hj28-prime-partiner'
-import { maxEnvelopes } from '../array/354-russian-doll-envelopes'
+import { maxEnvelopes } from '../dp/354-russian-doll-envelopes'
 
 describe('Top K th in array', () => {
   it('正常情况', () => {
