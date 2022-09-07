@@ -5,6 +5,7 @@ import { subsetsWithDup } from '../backtracking/90-subsets-II'
 import { mazeSolution } from '../backtracking/hj43-maze'
 import { permuteUnique } from '../backtracking/47-permutations-II'
 import { solveSudoku } from '../backtracking/37-sudoku-solver'
+import { removeInvalidParentheses } from '../backtracking/301-remove-invalid-parentheses'
 
 it('24 game', () => {
   const nums1 = [7, 2, 1, 10]
@@ -73,4 +74,23 @@ it('37 解数独', () => {
   expect(sudoku).not.toEqual(ansSudoku)
   solveSudoku(sudoku)
   expect(sudoku).toEqual(ansSudoku)
+})
+
+it.only('301 删除无效的括号', () => {
+  const str1 = '()())()'
+  const ans1 = ['(())()', '()()()']
+
+  const str2 = '(a)())()'
+  const ans2 = ['(a())()', '(a)()()']
+
+  const str3 = ')('
+  const ans3 = ['']
+
+  const str4 = '(r(()()('
+  const ans4 = ['r()()', 'r(())', '(r)()', '(r())']
+
+  expect(removeInvalidParentheses(str1)).toEqual(ans1)
+  expect(removeInvalidParentheses(str2)).toEqual(ans2)
+  expect(removeInvalidParentheses(str3)).toEqual(ans3)
+  expect(removeInvalidParentheses(str4)).toEqual(ans4)
 })
