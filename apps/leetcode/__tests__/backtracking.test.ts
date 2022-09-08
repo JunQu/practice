@@ -6,6 +6,7 @@ import { mazeSolution } from '../backtracking/hj43-maze'
 import { permuteUnique } from '../backtracking/47-permutations-II'
 import { solveSudoku } from '../backtracking/37-sudoku-solver'
 import { removeInvalidParentheses } from '../backtracking/301-remove-invalid-parentheses'
+import { countArrangement } from '../backtracking/526-beautiful-arrangement'
 
 it('24 game', () => {
   const nums1 = [7, 2, 1, 10]
@@ -76,7 +77,7 @@ it('37 解数独', () => {
   expect(sudoku).toEqual(ansSudoku)
 })
 
-it.only('301 删除无效的括号', () => {
+it('301 删除无效的括号', () => {
   const str1 = '()())()'
   const ans1 = ['(())()', '()()()']
 
@@ -93,4 +94,14 @@ it.only('301 删除无效的括号', () => {
   expect(removeInvalidParentheses(str2)).toEqual(ans2)
   expect(removeInvalidParentheses(str3)).toEqual(ans3)
   expect(removeInvalidParentheses(str4)).toEqual(ans4)
+})
+
+it('526 优美的排列', () => {
+  const num1 = 1
+  const num2 = 2
+  const num3 = 3
+
+  expect(countArrangement(num1)).toBe(1)
+  expect(countArrangement(num2)).toBe(2)
+  expect(countArrangement(num3)).toBe(3)
 })
