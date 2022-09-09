@@ -14,6 +14,9 @@ import { combinationSum2 } from '../backtracking/40-combination-sum-ii'
 import { combinationSum3 } from '../backtracking/216-combination-sum-iii'
 import { combine } from '../backtracking/77-combinations'
 import { readBinaryWatch } from '../backtracking/401-binary-watch'
+import { findSubsequences } from '../backtracking/491-increasing-subsequences'
+import { solveNQueens } from '../backtracking/51-n-queens'
+import { exist } from '../backtracking/79-word-search'
 
 it('24 game', () => {
   const nums1 = [7, 2, 1, 10]
@@ -235,7 +238,7 @@ it('77 组合', () => {
   expect(combine(n2, k2)).toEqual(ans2)
 })
 
-it.only('401 二进制手表', () => {
+it('401 二进制手表', () => {
   const turnOn1 = 1
   const turnOn2 = 9
   const turnOn3 = 2
@@ -293,4 +296,132 @@ it.only('401 二进制手表', () => {
   expect(readBinaryWatch(turnOn2)).toEqual(ans2)
   expect(readBinaryWatch(turnOn3)).toEqual(ans3)
   expect(readBinaryWatch(0)).toEqual(['0:00'])
+})
+
+it('491 递增子序列', () => {
+  const nums1 = [4, 6, 7, 7]
+  const ans1 = [
+    [4, 6],
+    [4, 6, 7],
+    [4, 6, 7, 7],
+    [4, 7],
+    [4, 7, 7],
+    [6, 7],
+    [6, 7, 7],
+    [7, 7],
+  ]
+
+  // 整数需要考虑负数，非负数需要考虑小数
+  // 不要用 - 作为数字的连接
+  const nums2 = [-100, -99, -98, -97, -96, -96]
+  const ans2 = [
+    [-100, -99],
+    [-100, -99, -98],
+    [-100, -99, -98, -97],
+    [-100, -99, -98, -97, -96],
+    [-100, -99, -98, -97, -96, -96],
+    [-100, -99, -98, -96],
+    [-100, -99, -98, -96, -96],
+    [-100, -99, -97],
+    [-100, -99, -97, -96],
+    [-100, -99, -97, -96, -96],
+    [-100, -99, -96],
+    [-100, -99, -96, -96],
+    [-100, -98],
+    [-100, -98, -97],
+    [-100, -98, -97, -96],
+    [-100, -98, -97, -96, -96],
+    [-100, -98, -96],
+    [-100, -98, -96, -96],
+    [-100, -97],
+    [-100, -97, -96],
+    [-100, -97, -96, -96],
+    [-100, -96],
+    [-100, -96, -96],
+    [-99, -98],
+    [-99, -98, -97],
+    [-99, -98, -97, -96],
+    [-99, -98, -97, -96, -96],
+    [-99, -98, -96],
+    [-99, -98, -96, -96],
+    [-99, -97],
+    [-99, -97, -96],
+    [-99, -97, -96, -96],
+    [-99, -96],
+    [-99, -96, -96],
+    [-98, -97],
+    [-98, -97, -96],
+    [-98, -97, -96, -96],
+    [-98, -96],
+    [-98, -96, -96],
+    [-97, -96],
+    [-97, -96, -96],
+    [-96, -96],
+  ]
+
+  expect(findSubsequences(nums1)).toEqual(ans1)
+  expect(findSubsequences(nums2)).toEqual(ans2)
+})
+
+// 没做过 8 皇后的回溯，总觉得缺少点什么
+it('51 N 皇后', () => {
+  const n1 = 4
+  const ans1 = [
+    ['.Q..', '...Q', 'Q...', '..Q.'],
+    ['..Q.', 'Q...', '...Q', '.Q..'],
+  ]
+
+  const n2 = 1
+  const ans2 = [['Q']]
+
+  expect(solveNQueens(n1)).toEqual(ans1)
+  expect(solveNQueens(n2)).toEqual(ans2)
+})
+
+it.only('79 单词搜索', () => {
+  const board1 = [
+    ['A', 'B', 'C', 'E'],
+    ['S', 'F', 'C', 'S'],
+    ['A', 'D', 'E', 'E'],
+  ]
+  const word1 = 'ABCCED'
+
+  const board2 = [
+    ['A', 'B', 'C', 'E'],
+    ['S', 'F', 'C', 'S'],
+    ['A', 'D', 'E', 'E'],
+  ]
+  const word2 = 'SECB'
+
+  const board3 = [
+    ['A', 'B', 'C', 'E'],
+    ['S', 'F', 'C', 'S'],
+    ['A', 'D', 'E', 'E'],
+  ]
+  const word3 = 'SEE'
+
+  const board4 = [
+    ['A', 'B', 'C', 'E'],
+    ['S', 'F', 'C', 'S'],
+    ['A', 'D', 'E', 'E'],
+  ]
+  const word4 = 'ABCB'
+
+  const board5 = [
+    ['C', 'A', 'A'],
+    ['A', 'A', 'A'],
+    ['B', 'C', 'D'],
+  ]
+
+  const word5 = 'AAB'
+
+  const board6 = [['b'], ['a'], ['b'], ['b'], ['a']]
+  const word6 = 'baa'
+
+  expect(exist(board1, word1)).toEqual(true)
+  expect(exist(board2, word2)).toEqual(true)
+  expect(exist(board3, word3)).toEqual(true)
+  expect(exist(board4, word4)).toEqual(false)
+  expect(exist(board5, word5)).toEqual(true)
+  expect(exist(board6, word6)).toEqual(false)
 })
