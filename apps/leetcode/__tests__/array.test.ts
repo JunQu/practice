@@ -54,7 +54,7 @@ it('hj28  素数伴侣  匈牙利算法，最多匹配 ', () => {
   expect(primePartner(arr4)).toBe(3)
 })
 
-it.only('354 俄罗斯套娃信封问题', () => {
+it('354 俄罗斯套娃信封问题', () => {
   const envelopes1 = [
     [5, 4],
     [6, 4],

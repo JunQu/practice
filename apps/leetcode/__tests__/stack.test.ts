@@ -8,7 +8,7 @@ it('503 下一个更大的元素', () => {
 
   expect(nextGreaterElements(nums1)).toEqual(ans1)
 })
-it.only('556 下一个更大的元素 3', () => {
+it('556 下一个更大的元素 3', () => {
   const nums1 = [100, 1, 11, 1, 120, 111, 123, 1, -1, -100]
 
   expect(nextGreaterElement3(12)).toEqual(21)

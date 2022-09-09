@@ -66,7 +66,7 @@ describe('二叉树的比较', () => {
 })
 
 describe('二叉树基本题目', () => {
-  it.only('652 寻找重复子树', () => {
+  it('652 寻找重复子树', () => {
     const tree1 = numsToTree([1, 2, 3, 4, null, 2, 4, null, null, 4])
     const tree2 = numsToTree([2, 1, 1])
     const tree3 = numsToTree([2, 2, 2, 3, null, 3, null])
