@@ -3,6 +3,7 @@ import { findKthLargest } from '../array/215-kth-largest-element-in-an-array'
 import { maxArea } from '../array/11-container-with-most-water'
 import { primePartner } from '../array/hj28-prime-partiner'
 import { maxEnvelopes } from '../dp/354-russian-doll-envelopes'
+import { leastInterval } from '../array/621-task-scheduler'
 
 describe('Top K th in array', () => {
   it('正常情况', () => {
@@ -96,4 +97,23 @@ it('354 俄罗斯套娃信封问题', () => {
   expect(maxEnvelopes(envelopes3)).toBe(3)
   expect(maxEnvelopes(envelopes4)).toBe(2)
   expect(maxEnvelopes(envelopes5)).toBe(7)
+})
+
+it('621 任务调度器', () => {
+  const task1 = ['A', 'A', 'A', 'A', 'A', 'A', 'B', 'C', 'D', 'E', 'F', 'G']
+  const n1 = 2
+
+  const tasks2 = ['A', 'A', 'A', 'B', 'B', 'B']
+  const n2 = 0
+
+  const tasks3 = ['A', 'A', 'A', 'B', 'B', 'B']
+  const n3 = 2
+
+  const tasks4 = ['A', 'A', 'A', 'B', 'B', 'B', 'C', 'C', 'C', 'D', 'D', 'E']
+  const n4 = 2
+
+  expect(leastInterval(task1, n1)).toBe(16)
+  expect(leastInterval(tasks2, n2)).toBe(6)
+  expect(leastInterval(tasks3, n3)).toBe(8)
+  expect(leastInterval(tasks4, n4)).toBe(12)
 })
