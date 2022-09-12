@@ -58,5 +58,3 @@ class UnionFind {
     return this.rank[parent]
   }
 }
-
-const arr = []

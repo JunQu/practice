@@ -4,6 +4,8 @@ import { maxArea } from '../array/11-container-with-most-water'
 import { primePartner } from '../array/hj28-prime-partiner'
 import { maxEnvelopes } from '../dp/354-russian-doll-envelopes'
 import { leastInterval } from '../array/621-task-scheduler'
+import { corpFlightBookings } from '../array/1109-corporate-flight-bookings'
+import { carPooling } from '../array/1094-car-pooling'
 
 describe('Top K th in array', () => {
   it('正常情况', () => {
@@ -116,4 +118,50 @@ it('621 任务调度器', () => {
   expect(leastInterval(tasks2, n2)).toBe(6)
   expect(leastInterval(tasks3, n3)).toBe(8)
   expect(leastInterval(tasks4, n4)).toBe(12)
+})
+
+// 差分数组的模板
+it('1109 航班预订统计', () => {
+  const bookings1 = [
+    [1, 2, 10],
+    [2, 3, 20],
+    [2, 5, 25],
+  ]
+  const n1 = 5
+  const ans1 = [10, 55, 45, 25, 25]
+
+  const bookings2 = [
+    [3, 3, 5],
+    [1, 3, 20],
+    [1, 2, 15],
+  ]
+  const n2 = 3
+  const ans2 = [35, 35, 25]
+
+  expect(corpFlightBookings(bookings1, n1)).toEqual(ans1)
+  expect(corpFlightBookings(bookings2, n2)).toEqual(ans2)
+})
+
+it.only('1094 拼车', () => {
+  const trips1 = [
+    [2, 1, 5],
+    [3, 3, 7],
+  ]
+  const capacity1 = 4
+
+  const trips2 = [
+    [2, 1, 5],
+    [3, 5, 7],
+  ]
+  const capacity2 = 3
+
+  const trips3 = [
+    [9, 0, 1],
+    [3, 3, 7],
+  ]
+  const capacity3 = 4
+
+  expect(carPooling(trips1, capacity1)).toEqual(false)
+  expect(carPooling(trips2, capacity2)).toEqual(true)
+  expect(carPooling(trips3, capacity3)).toEqual(false)
 })
