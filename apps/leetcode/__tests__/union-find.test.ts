@@ -9,6 +9,7 @@ import { findRedundantConnection } from '../union-find/684-redundant-connection'
 import { findRedundantDirectedConnection } from '../union-find/685-redundant-connection-II'
 import { minSwapsCouples } from '../union-find/765-couples-holding-hands'
 import { maxAreaOfIsland } from '../union-find/695-max-area-of-island'
+import { hitBricks } from '../union-find/803-bricks-falling-when-hit'
 
 /**
  *
@@ -212,4 +213,51 @@ it.skip('399 除法求值 题目真的有点难,虽然是中等,因为浮点数�
 
   expect(calcEquation(equations, values, queries)).toEqual(ans)
   expect(calcEquation(eq2, val2, query2)).toEqual(ans2)
+})
+
+// 逆向思维的不错题目
+it.only('803 打砖块', () => {
+  const grid1 = [
+    [1, 0, 0, 0],
+    [1, 1, 1, 0],
+  ]
+  const hits1 = [[1, 0]]
+  const ans1 = [2]
+
+  const grid2 = [
+    [1, 0, 0, 0],
+    [1, 1, 0, 0],
+  ]
+
+  const hits2 = [
+    [1, 1],
+    [1, 0],
+  ]
+  const ans2 = [0, 0]
+
+  const grid3 = [[1], [1], [1], [1], [1]]
+  const hits3 = [
+    [3, 0],
+    [4, 0],
+    [1, 0],
+    [2, 0],
+    [0, 0],
+  ]
+  const ans3 = [1, 0, 1, 0, 0]
+
+  const grid4 = [
+    [1, 0, 1],
+    [1, 1, 1],
+  ]
+  const hits4 = [
+    [0, 0],
+    [0, 2],
+    [1, 1],
+  ]
+  const ans4 = [0, 3, 0]
+
+  expect(hitBricks(grid1, hits1)).toEqual(ans1)
+  expect(hitBricks(grid2, hits2)).toEqual(ans2)
+  expect(hitBricks(grid3, hits3)).toEqual(ans3)
+  expect(hitBricks(grid4, hits4)).toEqual(ans4)
 })

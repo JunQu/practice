@@ -6,6 +6,8 @@ import { maxEnvelopes } from '../dp/354-russian-doll-envelopes'
 import { leastInterval } from '../array/621-task-scheduler'
 import { corpFlightBookings } from '../array/1109-corporate-flight-bookings'
 import { carPooling } from '../array/1094-car-pooling'
+import { merge } from '../array/56-merge-intervals'
+import { largestNumber } from '../array/179-largest-number'
 
 describe('Top K th in array', () => {
   it('正常情况', () => {
@@ -142,7 +144,7 @@ it('1109 航班预订统计', () => {
   expect(corpFlightBookings(bookings2, n2)).toEqual(ans2)
 })
 
-it.only('1094 拼车', () => {
+it('1094 拼车', () => {
   const trips1 = [
     [2, 1, 5],
     [3, 3, 7],
@@ -164,4 +166,42 @@ it.only('1094 拼车', () => {
   expect(carPooling(trips1, capacity1)).toEqual(false)
   expect(carPooling(trips2, capacity2)).toEqual(true)
   expect(carPooling(trips3, capacity3)).toEqual(false)
+})
+
+it('56 区间合并', () => {
+  const intervals1 = [
+    [1, 3],
+    [2, 6],
+    [8, 10],
+    [15, 18],
+  ]
+  const ans1 = [
+    [1, 6],
+    [8, 10],
+    [15, 18],
+  ]
+
+  const intervals2 = [
+    [1, 4],
+    [4, 5],
+  ]
+  const ans2 = [[1, 5]]
+
+  expect(merge(intervals1)).toEqual(ans1)
+  expect(merge(intervals2)).toEqual(ans2)
+})
+
+it('', () => {
+  const nums1 = [10, 2]
+  const ans1 = '210'
+
+  const nums2 = [3, 30, 34, 5, 9]
+  const ans2 = '9534330'
+
+  const nums3 = [4, 1, 9, 8, 4047, 47, 59, 22, 10]
+  const ans3 = '9859474404722110'
+
+  expect(largestNumber(nums1)).toEqual(ans1)
+  expect(largestNumber(nums2)).toEqual(ans2)
+  expect(largestNumber(nums3)).toEqual(ans3)
 })
