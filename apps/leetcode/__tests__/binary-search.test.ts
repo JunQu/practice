@@ -1,5 +1,6 @@
 import { expect } from 'vitest'
 import { findClosestElements } from '../binary-search/658-find-k-closest-elements'
+import { maxRunTime } from '../binary-search/2141-maximum-running-time-of-n-computers'
 
 it('658 每日一题', () => {
   const arr1 = [1, 2, 3, 4, 5]
@@ -24,4 +25,15 @@ it('658 每日一题', () => {
   expect(findClosestElements(arr2, k2, x2)).toEqual(ans1)
   expect(findClosestElements(arr3, k3, x3)).toEqual([10])
   expect(findClosestElements(arr4, k4, x4)).toEqual([1, 3])
+})
+
+it.only('2141  同时运行 N 台电脑的最长时间', () => {
+  const n1 = 2
+  const batteries1 = [3, 3, 3]
+
+  const n2 = 2
+  const batteries2 = [1, 1, 1, 1]
+
+  expect(maxRunTime(n1, batteries1)).toBe(4)
+  expect(maxRunTime(n2, batteries2)).toBe(2)
 })

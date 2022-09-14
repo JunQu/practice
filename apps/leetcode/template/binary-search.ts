@@ -5,7 +5,7 @@ export const binarySearch = (nums: number[], target: number) => {
   while (left <= right) {
     // 采取 right - left 是为了避免数子太大而溢出
     const mid = left + Math.floor((right - left) / 2)
-    if (nums[mid]) {
+    if (nums[mid] === target) {
       return mid
     } else if (nums[mid] < target) {
       left = mid + 1

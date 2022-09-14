@@ -378,7 +378,7 @@ it('51 N 皇后', () => {
   expect(solveNQueens(n2)).toEqual(ans2)
 })
 
-it.only('79 单词搜索', () => {
+it('79 单词搜索', () => {
   const board1 = [
     ['A', 'B', 'C', 'E'],
     ['S', 'F', 'C', 'S'],
