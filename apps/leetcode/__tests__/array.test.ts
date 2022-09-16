@@ -8,6 +8,8 @@ import { corpFlightBookings } from '../array/1109-corporate-flight-bookings'
 import { carPooling } from '../array/1094-car-pooling'
 import { merge } from '../array/56-merge-intervals'
 import { largestNumber } from '../array/179-largest-number'
+import { bulbSwitch } from '../array/319-bulb-switcher'
+import { intervalIntersection } from '../array/986-interval-list-intersections'
 
 describe('Top K th in array', () => {
   it('正常情况', () => {
@@ -191,7 +193,7 @@ it('56 区间合并', () => {
   expect(merge(intervals2)).toEqual(ans2)
 })
 
-it('', () => {
+it('210 最大数', () => {
   const nums1 = [10, 2]
   const ans1 = '210'
 
@@ -204,4 +206,60 @@ it('', () => {
   expect(largestNumber(nums1)).toEqual(ans1)
   expect(largestNumber(nums2)).toEqual(ans2)
   expect(largestNumber(nums3)).toEqual(ans3)
+})
+
+it('319 灯泡开关', () => {
+  const n1 = 3
+  const n2 = 0
+  const n3 = 1
+
+  expect(bulbSwitch(n1)).toEqual(1)
+  expect(bulbSwitch(n2)).toEqual(0)
+  expect(bulbSwitch(n3)).toEqual(1)
+})
+
+it.only('986 区间列表的交集', () => {
+  const firstList1 = [
+    [0, 2],
+    [5, 10],
+    [13, 23],
+    [24, 25],
+  ]
+  const secondList1 = [
+    [1, 5],
+    [8, 12],
+    [15, 24],
+    [25, 26],
+  ]
+  const ans1 = [
+    [1, 2],
+    [5, 5],
+    [8, 10],
+    [15, 23],
+    [24, 24],
+    [25, 25],
+  ]
+
+  const firstList2 = [
+    [1, 3],
+    [5, 9],
+  ]
+  const secondList2: number[][] = []
+  const ans2: number[][] = []
+
+  const firstList3: number[][] = []
+  const secondList3 = [
+    [4, 8],
+    [10, 12],
+  ]
+  const ans3: number[][] = []
+
+  const firstList4 = [[1, 7]]
+  const secondList4 = [[3, 10]]
+  const ans4 = [[3, 7]]
+
+  expect(intervalIntersection(firstList1, secondList1)).toEqual(ans1)
+  expect(intervalIntersection(firstList2, secondList2)).toEqual(ans2)
+  expect(intervalIntersection(firstList3, secondList3)).toEqual(ans3)
+  expect(intervalIntersection(firstList4, secondList4)).toEqual(ans4)
 })

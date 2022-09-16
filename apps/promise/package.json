@@ -7,6 +7,6 @@
   },
   "dependencies": {
     "promises-aplus-tests": "^2.1.2",
-    "vitest": "^0.21.1"
+    "vitest": "0.23.2"
   }
 }

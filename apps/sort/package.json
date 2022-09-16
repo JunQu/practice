@@ -7,6 +7,6 @@
     "test": "vitest run __tests__"
   },
   "devDependencies": {
-    "vitest": "^0.21.1"
+    "vitest": "0.23.2"
   }
 }

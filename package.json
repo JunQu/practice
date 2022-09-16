@@ -4,19 +4,19 @@
   "version": "0.3.0",
   "scripts": {
     "lint": "eslint .",
-    "css:dev":"pnpm --filter css run dev",
-    "interview:test":"pnpm --filter interview run test",
-    "leetcode:test":"pnpm --filter leetcode run test",
+    "css:dev": "pnpm --filter css run dev",
+    "interview:test": "pnpm --filter interview run test",
+    "leetcode:test": "pnpm --filter leetcode run test",
     "mecat:dev": "pnpm --filter mecat run dev",
-    "promise:test":"pnpm --filter promise run test",
+    "promise:test": "pnpm --filter promise run test",
     "react18:dev": "pnpm --filter react18 run dev",
     "react18:build": "pnpm --filter react18 run build",
     "react18:test": "pnpm --filter react18 run test",
     "react18:preview": "pnpm --filter react18 run preview",
-    "sort:test":"pnpm --filter sort run test",
-    "arr-help:test":"pnpm --filter arr-help run test",
-    "binary-help:test":"pnpm --filter binary-help run test",
-    "list-help:test":"pnpm --filter list-help run test"
+    "sort:test": "pnpm --filter sort run test",
+    "arr-help:test": "pnpm --filter arr-help run test",
+    "binary-help:test": "pnpm --filter binary-help run test",
+    "list-help:test": "pnpm --filter list-help run test"
   },
   "engines": {
     "node": ">=16",
@@ -33,6 +33,6 @@
     "prettier": "^2.7.1",
     "typescript": "^4.7.4",
     "vite": "3.0.5",
-    "vitest": "^0.21.1"
+    "vitest": "0.23.2"
   }
 }

@@ -27,7 +27,7 @@ it('658 每日一题', () => {
   expect(findClosestElements(arr4, k4, x4)).toEqual([1, 3])
 })
 
-it.only('2141  同时运行 N 台电脑的最长时间', () => {
+it('2141  同时运行 N 台电脑的最长时间', () => {
   const n1 = 2
   const batteries1 = [3, 3, 3]
 
@@ -37,3 +37,10 @@ it.only('2141  同时运行 N 台电脑的最长时间', () => {
   expect(maxRunTime(n1, batteries1)).toBe(4)
   expect(maxRunTime(n2, batteries2)).toBe(2)
 })
+
+const sum = (a:number, b:number) => a+ b
+
+it('Test sum', () => {
+  expect(sum(1, 1)).toBe(2)
+})
+

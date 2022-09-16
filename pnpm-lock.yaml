@@ -13,7 +13,7 @@ importers:
       prettier: ^2.7.1
       typescript: ^4.7.4
       vite: 3.0.5
-      vitest: ^0.21.1
+      vitest: 0.23.2
     devDependencies:
       '@types/node': 17.0.45
       '@typescript-eslint/eslint-plugin': 5.33.0_njno5y7ry2l2lcmiu4tywxkwnq
@@ -24,7 +24,7 @@ importers:
       prettier: 2.7.1
       typescript: 4.7.4
       vite: 3.0.5
-      vitest: 0.21.1
+      vitest: 0.23.2
 
   apps/css:
     specifiers:
@@ -39,10 +39,10 @@ importers:
   apps/interview:
     specifiers:
       typescript: ^4.7.4
-      vitest: ^0.21.1
+      vitest: 0.23.2
     dependencies:
       typescript: 4.7.4
-      vitest: 0.21.1
+      vitest: 0.23.2
 
   apps/leetcode:
     specifiers:
@@ -50,13 +50,13 @@ importers:
       binary-help: workspace:*
       list-help: workspace:*
       numstree: ^1.0.0
-      vitest: ^0.21.1
+      vitest: 0.23.2
     dependencies:
       arr-help: link:../../utils/arr-help
       binary-help: link:../../utils/binary-help
       list-help: link:../../utils/list-help
       numstree: 1.0.0
-      vitest: 0.21.1
+      vitest: 0.23.2
 
   apps/mecat:
     specifiers:
@@ -75,10 +75,10 @@ importers:
   apps/promise:
     specifiers:
       promises-aplus-tests: ^2.1.2
-      vitest: ^0.21.1
+      vitest: 0.23.2
     dependencies:
       promises-aplus-tests: 2.1.2
-      vitest: 0.21.1
+      vitest: 0.23.2
 
   apps/react18:
     specifiers:
@@ -93,7 +93,7 @@ importers:
       redux: ^4.2.0
       typescript: ^4.7.4
       vite: 3.0.5
-      vitest: ^0.21.1
+      vitest: 0.23.2
     dependencies:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -107,37 +107,37 @@ importers:
       '@vitejs/plugin-react': 2.0.0_vite@3.0.5
       typescript: 4.7.4
       vite: 3.0.5
-      vitest: 0.21.1
+      vitest: 0.23.2
 
   apps/sort:
     specifiers:
-      vitest: ^0.21.1
+      vitest: 0.23.2
     devDependencies:
-      vitest: 0.21.1
+      vitest: 0.23.2
 
   apps/targeted:
     specifiers:
-      vitest: ^0.21.1
+      vitest: 0.23.2
     devDependencies:
-      vitest: 0.21.1
+      vitest: 0.23.2
 
   utils/arr-help:
     specifiers:
-      vitest: ^0.21.1
+      vitest: 0.23.2
     devDependencies:
-      vitest: 0.21.1
+      vitest: 0.23.2
 
   utils/binary-help:
     specifiers:
-      vitest: ^0.21.1
+      vitest: 0.23.2
     devDependencies:
-      vitest: 0.21.1
+      vitest: 0.23.2
 
   utils/list-help:
     specifiers:
-      vitest: ^0.21.1
+      vitest: 0.23.2
     devDependencies:
-      vitest: 0.21.1
+      vitest: 0.23.2
 
 packages:
 
@@ -718,7 +718,6 @@ packages:
     resolution: {integrity: sha512-QOxyigPVrpZ2GXT+PFyZTl6TtOFc5egxHIP9IlQ+RbupQuX4RkT/Bee4/kQuC02Xkzg84JcT7oLYtDIQxp+v7w==}
     engines: {node: '>=0.4.0'}
     hasBin: true
-    dev: true
 
   /ajv/6.12.6:
     resolution: {integrity: sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g==}
@@ -2516,6 +2515,11 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
+  /strip-literal/0.4.1:
+    resolution: {integrity: sha512-z+F/xmDM8GOdvA5UoZXFxEnxdvMOZ+XEBIwjfLfc8hMSuHpGxjXAUCfuEo+t1GOHSb8+qgI/IBRpxXVMaABYWA==}
+    dependencies:
+      acorn: 8.8.0
+
   /supports-color/1.2.0:
     resolution: {integrity: sha512-mS5xsnjTh5b7f2DM6bch6lR582UCOTphzINlZnDsfpIRrwI6r58rb6YSSGsdexkm8qw2bBVO2ID2fnJOTuLiPA==}
     engines: {node: '>=0.10.0'}
@@ -2544,12 +2548,15 @@ packages:
     resolution: {integrity: sha512-N+8UisAXDGk8PFXP4HAzVR9nbfmVJ3zYLAWiTIoqC5v5isinhr+r5uaO8+7r3BMfuNIufIsA7RdpVgacC2cSpw==}
     dev: true
 
-  /tinypool/0.2.4:
-    resolution: {integrity: sha512-Vs3rhkUH6Qq1t5bqtb816oT+HeJTXfwt2cbPH17sWHIYKTotQIFPk3tf2fgqRrVyMDVOc1EnPgzIxfIulXVzwQ==}
+  /tinybench/2.1.5:
+    resolution: {integrity: sha512-ak+PZZEuH3mw6CCFOgf5S90YH0MARnZNhxjhjguAmoJimEMAJuNip/rJRd6/wyylHItomVpKTzZk9zrhTrQCoQ==}
+
+  /tinypool/0.3.0:
+    resolution: {integrity: sha512-NX5KeqHOBZU6Bc0xj9Vr5Szbb1j8tUHIeD18s41aDJaPeC5QTdEhK0SpdpUrZlj2nv5cctNcSjaKNanXlfcVEQ==}
     engines: {node: '>=14.0.0'}
 
-  /tinyspy/1.0.0:
-    resolution: {integrity: sha512-FI5B2QdODQYDRjfuLF+OrJ8bjWRMCXokQPcwKm0W3IzcbUmBNv536cQc7eXGoAuXphZwgx1DFbqImwzz08Fnhw==}
+  /tinyspy/1.0.2:
+    resolution: {integrity: sha512-bSGlgwLBYf7PnUsQ6WOc6SJ3pGOcd+d8AA6EUnLDDM0kWEstC1JIlSZA3UNliDXhd9ABoS7hiRBDCu+XP/sf1Q==}
     engines: {node: '>=14.0.0'}
 
   /to-fast-properties/2.0.0:
@@ -2709,15 +2716,14 @@ packages:
       fsevents: 2.3.2
     dev: false
 
-  /vitest/0.21.1:
-    resolution: {integrity: sha512-WBIxuFmIDPuK47GO6Lu9eNeRMqHj/FWL3dk73OHH3eyPPWPiu+UB3QHLkLK2PEggCqJW4FaWoWg8R68S7p9+9Q==}
+  /vitest/0.23.2:
+    resolution: {integrity: sha512-kTBKp3ROPDkYC+x2zWt4znkDtnT08W1FQ6ngRFuqxpBGNuNVS+eWZKfffr8y2JGvEzZ9EzMAOcNaiqMj/FZqMw==}
     engines: {node: '>=v14.16.0'}
     hasBin: true
     peerDependencies:
       '@edge-runtime/vm': '*'
       '@vitest/browser': '*'
       '@vitest/ui': '*'
-      c8: '*'
       happy-dom: '*'
       jsdom: '*'
     peerDependenciesMeta:
@@ -2726,8 +2732,6 @@ packages:
       '@vitest/browser':
         optional: true
       '@vitest/ui':
-        optional: true
-      c8:
         optional: true
       happy-dom:
         optional: true
@@ -2740,8 +2744,10 @@ packages:
       chai: 4.3.6
       debug: 4.3.4
       local-pkg: 0.4.2
-      tinypool: 0.2.4
-      tinyspy: 1.0.0
+      strip-literal: 0.4.1
+      tinybench: 2.1.5
+      tinypool: 0.3.0
+      tinyspy: 1.0.2
       vite: 3.0.5
     transitivePeerDependencies:
       - less
