@@ -8,6 +8,7 @@ import { lengthOfLIS } from '../dp/300-longest-increasing-subsequence'
 import { hj61ApplesPlates } from '../dp/hj61-apples-plates'
 import { numsToTree } from 'numstree'
 import { longestCommonSubsequence } from '../dp/1143-longest-common-subsequence'
+import { cuttingRope } from '../dp/343-integer-break'
 
 it('198 house robber', () => {
   const arr = [1, 2, 3, 1]
@@ -98,4 +99,14 @@ it('1143 最长公共子序列', () => {
   expect(longestCommonSubsequence(sss2[0], sss2[1])).toBe(2)
   expect(longestCommonSubsequence(sss3[0], sss3[1])).toBe(0)
   expect(longestCommonSubsequence(sss4[0], sss4[1])).toBe(1)
+})
+
+it.only('offer 14 剪绳子', () => {
+  const n1 = 2
+  const n2 = 6
+  const n3 = 10
+
+  expect(cuttingRope(n1)).toBe(1)
+  expect(cuttingRope(n2)).toBe(9)
+  expect(cuttingRope(n3)).toBe(36)
 })
