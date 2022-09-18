@@ -10,6 +10,7 @@ import { findRedundantDirectedConnection } from '../union-find/685-redundant-con
 import { minSwapsCouples } from '../union-find/765-couples-holding-hands'
 import { maxAreaOfIsland } from '../union-find/695-max-area-of-island'
 import { hitBricks } from '../union-find/803-bricks-falling-when-hit'
+import { largestIsland } from '../union-find/827-making-a-large-island'
 
 /**
  *
@@ -260,4 +261,25 @@ it('803 打砖块', () => {
   expect(hitBricks(grid2, hits2)).toEqual(ans2)
   expect(hitBricks(grid3, hits3)).toEqual(ans3)
   expect(hitBricks(grid4, hits4)).toEqual(ans4)
+})
+
+it('827 最大人工岛', () => {
+  const grid1 = [
+    [1, 0],
+    [0, 1],
+  ]
+
+  const grid2 = [
+    [1, 1],
+    [1, 0],
+  ]
+
+  const grid3 = [
+    [1, 1],
+    [1, 1],
+  ]
+
+  expect(largestIsland(grid1)).toBe(3)
+  expect(largestIsland(grid2)).toBe(4)
+  expect(largestIsland(grid3)).toBe(4)
 })

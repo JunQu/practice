@@ -5,6 +5,8 @@ import { minimumRecolors } from '../weekly/6156-minimum-recolors-to-get-k-consec
 import { secondsToRemoveOccurrences } from '../weekly/6157-time-needed-to-rearrange-a-binary-string'
 import { shiftingLetters } from '../weekly/6158-shifting-letters-ii'
 import { maximumSegmentSum } from '../weekly/6159-maximum-segment-sum-after-removals'
+import { numsToTree } from 'numstree'
+import { reverseOddLevels } from '../weekly/weekly-contest-311'
 
 it('6170 meeting rooms iii', () => {
   const meetings1 = [
@@ -106,4 +108,11 @@ it('6159', () => {
   const nums = [1, 2, 5, 6, 1]
   const removeQueries = [0, 3, 2, 4, 1]
   expect(maximumSegmentSum(nums, removeQueries)).toEqual([14, 7, 2, 2, 0])
+})
+
+it.only('reverseOddLevels', () => {
+  const tree1 = numsToTree([2, 3, 5, 8, 13, 21, 34, 2, 1, 3, 4, 7, 11, 29, 18])
+  const ans = numsToTree([2, 5, 3, 8, 13, 21, 34, 18, 29, 11, 7, 4, 3, 1, 2])
+
+  expect(reverseOddLevels(tree1)).toEqual(ans)
 })
