@@ -101,7 +101,7 @@ it('1143 最长公共子序列', () => {
   expect(longestCommonSubsequence(sss4[0], sss4[1])).toBe(1)
 })
 
-it.only('offer 14 剪绳子', () => {
+it('offer 14 剪绳子', () => {
   const n1 = 2
   const n2 = 6
   const n3 = 10

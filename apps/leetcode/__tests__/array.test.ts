@@ -10,6 +10,7 @@ import { merge } from '../array/56-merge-intervals'
 import { largestNumber } from '../array/179-largest-number'
 import { bulbSwitch } from '../array/319-bulb-switcher'
 import { intervalIntersection } from '../array/986-interval-list-intersections'
+import { replaceWords } from '../string/648-replace-words'
 
 describe('Top K th in array', () => {
   it('正常情况', () => {
@@ -218,7 +219,7 @@ it('319 灯泡开关', () => {
   expect(bulbSwitch(n3)).toEqual(1)
 })
 
-it.only('986 区间列表的交集', () => {
+it('986 区间列表的交集', () => {
   const firstList1 = [
     [0, 2],
     [5, 10],
@@ -262,4 +263,17 @@ it.only('986 区间列表的交集', () => {
   expect(intervalIntersection(firstList2, secondList2)).toEqual(ans2)
   expect(intervalIntersection(firstList3, secondList3)).toEqual(ans3)
   expect(intervalIntersection(firstList4, secondList4)).toEqual(ans4)
+})
+
+it('648 单词替换', () => {
+  const dictionary1 = ['cat', 'bat', 'rat']
+  const sentence1 = 'the cattle was rattled by the battery'
+  const ans1 = 'the cat was rat by the bat'
+
+  const dictionary2 = ['a', 'b', 'c']
+  const sentence2 = 'aadsfasf absbs bbab cadsfafs'
+  const ans2 = 'a a b c'
+
+  expect(replaceWords(dictionary1, sentence1)).toEqual(ans1)
+  expect(replaceWords(dictionary2, sentence2)).toEqual(ans2)
 })

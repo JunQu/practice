@@ -17,6 +17,7 @@ import { readBinaryWatch } from '../backtracking/401-binary-watch'
 import { findSubsequences } from '../backtracking/491-increasing-subsequences'
 import { solveNQueens } from '../backtracking/51-n-queens'
 import { exist } from '../backtracking/79-word-search'
+import { findWords } from '../backtracking/212-word-search-ii'
 
 it('24 game', () => {
   const nums1 = [7, 2, 1, 10]
@@ -424,4 +425,25 @@ it('79 单词搜索', () => {
   expect(exist(board4, word4)).toEqual(false)
   expect(exist(board5, word5)).toEqual(true)
   expect(exist(board6, word6)).toEqual(false)
+})
+
+it('212 单词搜索 2', () => {
+  const board1 = [
+    ['o', 'a', 'a', 'n'],
+    ['e', 't', 'a', 'e'],
+    ['i', 'h', 'k', 'r'],
+    ['i', 'f', 'l', 'v'],
+  ]
+  const words1 = ['pea', 'eat', 'oath', 'rain']
+  const ans1 = ['oath', 'eat']
+
+  const board2 = [
+    ['a', 'b'],
+    ['c', 'd'],
+  ]
+  const words2 = ['abcb']
+  const ans2: string[] = []
+
+  expect(findWords(board1, words1)).toEqual(ans1)
+  expect(findWords(board2, words2)).toEqual(ans2)
 })
