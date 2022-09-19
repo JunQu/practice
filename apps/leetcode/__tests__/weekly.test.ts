@@ -110,7 +110,7 @@ it('6159', () => {
   expect(maximumSegmentSum(nums, removeQueries)).toEqual([14, 7, 2, 2, 0])
 })
 
-it.only('reverseOddLevels', () => {
+it('reverseOddLevels', () => {
   const tree1 = numsToTree([2, 3, 5, 8, 13, 21, 34, 2, 1, 3, 4, 7, 11, 29, 18])
   const ans = numsToTree([2, 5, 3, 8, 13, 21, 34, 18, 29, 11, 7, 4, 3, 1, 2])
 

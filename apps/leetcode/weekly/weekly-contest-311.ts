@@ -57,7 +57,7 @@ export function reverseOddLevels(root: TreeNode | null): TreeNode | null {
 // 这里是首先统计所有的前缀，然后统计各个前缀的数量在数组
 // 因为如果是其他单词的前缀，那么必然包含了这个前缀在数组
 // 所以统计数量即可，但是数据大的时候，因为是 NxN 所以超时，空间也是 N x N
-function sumPrefixScores(words: string[]): number[] {
+function sumPrefixScoresHash(words: string[]): number[] {
   if (words.length === 1) {
     return [words[0].length]
   }
@@ -97,5 +97,67 @@ const getSubstr = (str: string): string[] => {
   return strs
 }
 
-console.log(sumPrefixScores(['abc', 'ab', 'bc', 'b']))
-console.log(sumPrefixScores(['abcd']))
+function sumPrefixScores(words: string[]): number[] {
+  const collection: number[] = []
+  const trie = new Trie()
+  // 首先存入前缀树，存入过程进行统计个数
+  for (const word of words) {
+    trie.insetWord(word)
+  }
+  // 取出前缀树里面统计的结果
+  for (const word of words) {
+    collection.push(trie.getWordCount(word))
+  }
+  return collection
+}
+
+class Trie {
+  root: TrieNode
+  constructor() {
+    this.root = new TrieNode()
+  }
+  insetWord(word: string) {
+    if (!word) {
+      return
+    }
+    // 相对于树，我更愿意称它为链表，因为对于每个单词，它的路径确定的且唯一的
+    // 整个过程就和链表一样，只不过需要寻找下一个节点是不太一样
+    let node = this.root
+    // 把每个字符添加到树里面
+    // 注意路过的地方都要加一，因为这里统计所有分数的和
+    for (const s of word) {
+      if (!node.children.has(s)) {
+        node.children.set(s, new TrieNode())
+      }
+      // 当前路过的字符，必然以此单词为前缀，加一
+      node.count += 1
+      // 移动链表
+      node = node.children.get(s)!
+    }
+    // 最后单词结束的点，需要加一
+    node.count += 1
+  }
+  getWordCount(word: string): number {
+    if (!word) {
+      return 0
+    }
+    let count = 0
+    let node = this.root
+    for (const s of word) {
+      // 移动链表
+      node = node.children.get(s)!
+      // 把每个路过都加起来，因为每次路过都是一个前缀
+      count += node?.count || 0
+    }
+    return count
+  }
+}
+
+class TrieNode {
+  children: Map<string, TrieNode>
+  count: number
+  constructor() {
+    this.children = new Map<string, TrieNode>()
+    this.count = 0
+  }
+}
