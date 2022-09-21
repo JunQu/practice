@@ -18,6 +18,7 @@ import { findSubsequences } from '../backtracking/491-increasing-subsequences'
 import { solveNQueens } from '../backtracking/51-n-queens'
 import { exist } from '../backtracking/79-word-search'
 import { findWords } from '../backtracking/212-word-search-ii'
+import { canPartitionKSubsets } from '../backtracking/698-partition-to-k-equal-sum-subsets'
 
 it('24 game', () => {
   const nums1 = [7, 2, 1, 10]
@@ -446,4 +447,16 @@ it('212 单词搜索 2', () => {
 
   expect(findWords(board1, words1)).toEqual(ans1)
   expect(findWords(board2, words2)).toEqual(ans2)
+})
+
+// 与 473 的火柴是相似题目
+it('698 分割相等的k个子集', () => {
+  const nums1 = [3, 3, 10, 2, 6, 5, 10, 6, 8, 3, 2, 1, 6, 10, 7, 2]
+  const k1 = 6
+
+  const nums2 = [4, 3, 2, 3, 5, 2, 1]
+  const k2 = 4
+
+  expect(canPartitionKSubsets(nums1, k1)).toBe(false)
+  expect(canPartitionKSubsets(nums2, k2)).toBe(true)
 })
