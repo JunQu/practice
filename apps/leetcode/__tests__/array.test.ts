@@ -11,6 +11,7 @@ import { largestNumber } from '../array/179-largest-number'
 import { bulbSwitch } from '../array/319-bulb-switcher'
 import { intervalIntersection } from '../array/986-interval-list-intersections'
 import { replaceWords } from '../string/648-replace-words'
+import { threeSum } from '../array/15-3sum'
 
 describe('Top K th in array', () => {
   it('正常情况', () => {
@@ -276,4 +277,17 @@ it('648 单词替换', () => {
 
   expect(replaceWords(dictionary1, sentence1)).toEqual(ans1)
   expect(replaceWords(dictionary2, sentence2)).toEqual(ans2)
+})
+
+it('15 三数之和', () => {
+  const nums1 = [-1, 0, 1, 2, -1, -4]
+  const nums2 = [0, 0, 0, 0, 0]
+  const nums3 = [0, 1, 1]
+
+  expect(threeSum(nums1)).toEqual([
+    [-1, -1, 2],
+    [-1, 0, 1],
+  ])
+  expect(threeSum(nums2)).toEqual([[0, 0, 0]])
+  expect(threeSum(nums3)).toEqual([])
 })
