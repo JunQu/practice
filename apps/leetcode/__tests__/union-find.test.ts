@@ -11,6 +11,7 @@ import { minSwapsCouples } from '../union-find/765-couples-holding-hands'
 import { maxAreaOfIsland } from '../union-find/695-max-area-of-island'
 import { hitBricks } from '../union-find/803-bricks-falling-when-hit'
 import { largestIsland } from '../union-find/827-making-a-large-island'
+import { minMalwareSpread } from '../union-find/924-minimize-malware-spread'
 
 /**
  *
@@ -282,4 +283,31 @@ it('827 最大人工岛', () => {
   expect(largestIsland(grid1)).toBe(3)
   expect(largestIsland(grid2)).toBe(4)
   expect(largestIsland(grid3)).toBe(4)
+})
+
+it('924. 尽量减少恶意软件的传播', () => {
+  const graph1 = [
+    [1, 1, 0],
+    [1, 1, 0],
+    [0, 0, 1],
+  ]
+  const initial1 = [0, 1]
+
+  const graph2 = [
+    [1, 0, 0],
+    [0, 1, 0],
+    [0, 0, 1],
+  ]
+  const initial2 = [0, 2]
+
+  const graph3 = [
+    [1, 1, 1],
+    [1, 1, 1],
+    [1, 1, 1],
+  ]
+  const initial3 = [1, 2]
+
+  expect(minMalwareSpread(graph1, initial1)).toBe(0)
+  expect(minMalwareSpread(graph2, initial2)).toBe(0)
+  expect(minMalwareSpread(graph3, initial3)).toBe(1)
 })
