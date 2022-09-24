@@ -22,6 +22,6 @@ it('任务调度', () => {
   expect(taskDispatch([2, 2, 2, 3, 3, 3], 2)).toBe(8)
 })
 
-it.only('移除 K位数字', () => {
+it('移除 K位数字', () => {
   expect(removeKthNum('2615371', 4)).toBe(131)
 })
