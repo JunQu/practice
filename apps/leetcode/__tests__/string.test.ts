@@ -1,6 +1,7 @@
 import { expect } from 'vitest'
 import { maximumSwap } from '../number/670-maximum-swap'
 import { findAllConcatenatedWordsInADict } from '../string/472-concatenated-words'
+import { minAddToMakeValid } from '../string/921-minimum-add-to-make-parentheses-valid'
 
 it('670 最大交换', () => {
   const num1 = 2736
@@ -24,4 +25,14 @@ it('472 连接词', () => {
 
   expect(findAllConcatenatedWordsInADict(word1)).toEqual(ans1)
   expect(findAllConcatenatedWordsInADict(word2)).toEqual(ans2)
+})
+
+it('921. 使括号有效的最少添加', () => {
+  const s1 = '())'
+  const s2 = '((('
+  const s3 = ')('
+
+  expect(minAddToMakeValid(s1)).toBe(1)
+  expect(minAddToMakeValid(s2)).toBe(3)
+  expect(minAddToMakeValid(s3)).toBe(2)
 })
