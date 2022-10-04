@@ -74,7 +74,7 @@ describe('二叉树基本题目', () => {
     const ans1 = [[4], [2, 4]].map((arr) => numsToTree(arr))
     const ans2 = [[1]].map((arr) => numsToTree(arr))
     const ans3 = [[2, 3], [3]].map((arr) => numsToTree(arr))
-    console.log(findDuplicateSubtrees(tree1))
+
     expect(findDuplicateSubtrees(tree1)).toEqual(ans1)
     // expect(findDuplicateSubtrees(tree2)).toEqual(ans2)
     // expect(findDuplicateSubtrees(tree3)).toEqual(ans3)

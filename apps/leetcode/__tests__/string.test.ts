@@ -1,4 +1,4 @@
-import { expect } from 'vitest'
+import { expect, it } from 'vitest'
 import { maximumSwap } from '../number/670-maximum-swap'
 import { findAllConcatenatedWordsInADict } from '../string/472-concatenated-words'
 import { minAddToMakeValid } from '../string/921-minimum-add-to-make-parentheses-valid'

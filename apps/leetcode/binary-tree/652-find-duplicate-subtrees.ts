@@ -11,7 +11,7 @@ export const findDuplicateSubtrees = (root: TreeNode | null): Array<TreeNode | n
     let key = root.val + '-'
     key += dfs(root.left)
     key += dfs(root.right)
-    console.log('key: ', key)
+
     if (!hash.has(key)) {
       hash.set(key, 1)
     } else {
