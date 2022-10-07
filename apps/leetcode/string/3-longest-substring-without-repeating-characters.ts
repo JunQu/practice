@@ -13,8 +13,3 @@ const lengthOfLongestSubstring = (str: string): number => {
   }
   return max
 }
-console.log(lengthOfLongestSubstring('abcabcbb'))
-console.log(lengthOfLongestSubstring(''))
-console.log(lengthOfLongestSubstring('a'))
-console.log(lengthOfLongestSubstring('leetcode'))
-console.log(lengthOfLongestSubstring('aabaab!bb'))

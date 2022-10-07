@@ -12,6 +12,7 @@ import { bulbSwitch } from '../array/319-bulb-switcher'
 import { intervalIntersection } from '../array/986-interval-list-intersections'
 import { replaceWords } from '../string/648-replace-words'
 import { threeSum } from '../array/15-3sum'
+import { maxAscendingSum } from '../array/1800-maximum-ascending-subarray-sum'
 
 describe('Top K th in array', () => {
   it('正常情况', () => {
@@ -290,4 +291,12 @@ it('15 三数之和', () => {
   ])
   expect(threeSum(nums2)).toEqual([[0, 0, 0]])
   expect(threeSum(nums3)).toEqual([])
+})
+
+it.only('1800 最大升序子数组和', () => {
+  const nums1 = [10, 20, 30, 5, 10, 50]
+  const nums2 = [10, 20, 30, 40, 50]
+
+  expect(maxAscendingSum(nums1)).toBe(65)
+  expect(maxAscendingSum(nums2)).toBe(150)
 })
