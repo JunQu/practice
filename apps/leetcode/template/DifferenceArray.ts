@@ -1,4 +1,4 @@
-class DifferenceArray {
+export class DifferenceArray {
   // 差分数组
   diff: number[]
 
