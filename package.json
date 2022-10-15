@@ -1,7 +1,7 @@
 {
   "name": "practice",
   "private": true,
-  "version": "0.3.0",
+  "version": "0.3.3",
   "scripts": {
     "lint": "eslint .",
     "test": "vitest",
@@ -25,7 +25,7 @@
     "npm": ">=7"
   },
   "devDependencies": {
-    "@types/node": "^17.0.45",
+    "@types/node": "18.8.5",
     "@typescript-eslint/eslint-plugin": "^5.39.0",
     "@typescript-eslint/parser": "^5.39.0",
     "eslint": "^8.25.0",
