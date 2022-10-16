@@ -6,7 +6,7 @@ import { rob3 } from '../dp/337-house-robber-III'
 import { minPathSum } from '../dp/64-minimun-path-sum'
 import { lengthOfLIS } from '../dp/300-longest-increasing-subsequence'
 import { hj61ApplesPlates } from '../dp/hj61-apples-plates'
-import { numsToTree } from 'numstree'
+import { deserialize } from 'numstree'
 import { longestCommonSubsequence } from '../dp/1143-longest-common-subsequence'
 import { cuttingRope } from '../dp/343-integer-break'
 
@@ -30,9 +30,9 @@ it('213 house robber II', () => {
 })
 
 it('337 house robber III', () => {
-  const root1 = numsToTree([3, 2, 3, null, 3, null, 1])
-  const root2 = numsToTree([3, 4, 5, 1, 3, null, 1])
-  const root3 = numsToTree([2, 1, 3, null, 4])
+  const root1 = deserialize([3, 2, 3, null, 3, null, 1])
+  const root2 = deserialize([3, 4, 5, 1, 3, null, 1])
+  const root3 = deserialize([2, 1, 3, null, 4])
 
   expect(rob3(root1)).toBe(7)
   expect(rob3(root2)).toBe(9)
