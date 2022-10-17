@@ -10,19 +10,11 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "module": "ESNext",
-    "moduleResolution": "Node",
+    "moduleResolution": "NodeNext",
     "resolveJsonModule": true,
     "isolatedModules": false,
     "jsx": "react-jsx",
     "sourceMap": true
   },
-  "exclude": [
-    "node_modules",
-    "build",
-    "dist",
-    ".idea",
-    ".history",
-    ".next",
-    ".vscode",
-  ]
+  "exclude": ["node_modules", "build", "dist", ".idea", ".history", ".next", ".vscode"]
 }
