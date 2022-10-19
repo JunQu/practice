@@ -13,6 +13,7 @@ import { intervalIntersection } from '../array/986-interval-list-intersections'
 import { replaceWords } from '../string/648-replace-words'
 import { threeSum } from '../array/15-3sum'
 import { maxAscendingSum } from '../array/1800-maximum-ascending-subarray-sum'
+import { countStudents } from '../array/1700-number-of-students-unable-to-eat-lunch'
 
 describe('Top K th in array', () => {
   it('正常情况', () => {
@@ -293,10 +294,23 @@ it('15 三数之和', () => {
   expect(threeSum(nums3)).toEqual([])
 })
 
-it.only('1800 最大升序子数组和', () => {
+it('1800 最大升序子数组和', () => {
   const nums1 = [10, 20, 30, 5, 10, 50]
   const nums2 = [10, 20, 30, 40, 50]
 
   expect(maxAscendingSum(nums1)).toBe(65)
   expect(maxAscendingSum(nums2)).toBe(150)
+})
+
+it('1700. 无法吃午餐的学生数量', () => {
+  const students1 = [1, 1, 0, 0]
+  const sandwiches1 = [0, 1, 0, 1]
+  const ans1 = 0
+
+  const students2 = [1, 1, 1, 0, 0, 1]
+  const sandwiches2 = [1, 0, 0, 0, 1, 1]
+  const ans2 = 3
+
+  expect(countStudents(students1, sandwiches1)).toBe(ans1)
+  expect(countStudents(students2, sandwiches2)).toBe(ans2)
 })
