@@ -5,8 +5,8 @@
  * 思路：组合后字符串长度确定，为了得到值最大，确保高位都是大值，只要找到 B 的第一位比 A 中某一位大，这个就是插入的位置
  */
 
-const getMaxMeagre = (stringA: string, stringB: string): string => {
-  // 考虑空川
+const getMaxMerge = (stringA: string, stringB: string): string => {
+  // 考虑空串
   if (!stringA && !stringB) {
     return '-1'
   }
@@ -39,9 +39,9 @@ const getMaxMeagre = (stringA: string, stringB: string): string => {
   }
 }
 
-console.log(getMaxMeagre('123', '456'))
-console.log(getMaxMeagre('456', '123'))
-console.log(getMaxMeagre('', '123'))
-console.log(getMaxMeagre('123', ''))
-console.log(getMaxMeagre('7185', '754'))
-console.log(getMaxMeagre('', ''))
+console.log(getMaxMerge('123', '456'))
+console.log(getMaxMerge('456', '123'))
+console.log(getMaxMerge('', '123'))
+console.log(getMaxMerge('123', ''))
+console.log(getMaxMerge('7185', '754'))
+console.log(getMaxMerge('', ''))
